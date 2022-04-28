@@ -2,9 +2,9 @@
 
 The command ```netivreg``` implements the Generalized Three-Stage Least Squares (G3SLS) estimator developed in Estrada et al. (2020, “On the Identification and Estimation of Endogenous Peer Effects in Multiplex Networks”) and the Generalized Method of Moments (GMM) estimator in Chan et al. (2022, “On the Estimation of Social Effects with Observational Network Data and Random Assignment”)
 
-Author 1 name: [Pablo Estrada](https://pabloestradac.github.io/)
-Author 1 from: Emory University, Atlanta, GA, USA 
-Author 1 email: pestrad@emory.edu 
+Author 1 name: [Pablo Estrada](https://pabloestradac.github.io/)  
+Author 1 from: Emory University, Atlanta, GA, USA  
+Author 1 email: pestrad@emory.edu  
 
 Author 2 name: [Juan Estrada](https://www.juanestrada.info/)
 Author 2 from: Emory University, Atlanta, GA, USA 
@@ -28,7 +28,7 @@ Files list and folders structure:
 
 - data (folder): contains all data required to run the examples in the manuscript. The files include ```articles.dta```, ```data_sim.dta```, ```edges.dta```, ```edges0.dta```, ```W_sim.dta``` and ```W0_sim.dta```.
 
-- netivreg(folder): contains the Python script with the Generalized Three-Stage Least Squares and the Generalized Method of Moments estimators. The files include ```__init__.py```, ```g3sls.py``` and ```gmm.py```. 
+- netivreg (folder): contains the Python scripts with the Generalized Three-Stage Least Squares and the Generalized Method of Moments estimators. The files include ```__init__.py```, ```g3sls.py``` and ```gmm.py```. 
 
 The other files in the repository include:
 
