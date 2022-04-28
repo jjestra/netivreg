@@ -6,21 +6,21 @@ Author 1 name: [Pablo Estrada](https://pabloestradac.github.io/)
 Author 1 from: Emory University, Atlanta, GA, USA  
 Author 1 email: pestrad@emory.edu  
 
-Author 2 name: [Juan Estrada](https://www.juanestrada.info/)
-Author 2 from: Emory University, Atlanta, GA, USA 
-Author 2 email: jjestra@emory.edu
+Author 2 name: [Juan Estrada](https://www.juanestrada.info/)  
+Author 2 from: Emory University, Atlanta, GA, USA  
+Author 2 email: jjestra@emory.edu  
 
-Author 3 name: [Kim Huynh](https://kphuynh.pages.iu.edu/)
-Author 3 from: Bank of Canada, Ottawa, Ontario, Canada 
-Author 3 email: kim@huynh.tv
+Author 3 name: [Kim Huynh](https://kphuynh.pages.iu.edu/)  
+Author 3 from: Bank of Canada, Ottawa, Ontario, Canada  
+Author 3 email: kim@huynh.tv  
 
-Author 4 name: [David Jacho-Chavez](https://www.davidjachochavez.org/)
-Author 4 from: Emory University, Atlanta, GA, USA 
-Author 4 email: djachocha@emory.edu
+Author 4 name: [David Jacho-Chavez](https://www.davidjachochavez.org/)  
+Author 4 from: Emory University, Atlanta, GA, USA  
+Author 4 email: djachocha@emory.edu  
 
-Author 5 name: [Leonardo Sanchez-Aragon](https://leonardosanchezaragon.netlify.app/)
-Author 5 from: ESPOL University, Guayaquil, Guayas, Ecuador 
-Author 5 email: lfsanche@espol.edu.ec
+Author 5 name: [Leonardo Sanchez-Aragon](https://leonardosanchezaragon.netlify.app/)  
+Author 5 from: ESPOL University, Guayaquil, Guayas, Ecuador  
+Author 5 email: lfsanche@espol.edu.ec  
 
 ## Usage 
 
