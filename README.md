@@ -1,6 +1,6 @@
 ## Code for the article "```netivreg```: _Estimation of Peer Effects in Endogenous Social Networks_"
 
-The command ```netivreg``` implements the Generalized Three-Stage Least Squares (G3SLS) estimator developed in Estrada et al. (2020, “_On the Identification and Estimation of Endogenous Peer Effects in Multiplex Networks_”) and the Generalized Method of Moments (GMM) estimator in Chan et al. (2022, “_On the Estimation of Social Effects with Observational Network Data and Random Assignment_”)
+The Stata command ```netivreg``` implements the Generalized Three-Stage Least Squares (G3SLS) estimator developed in Estrada et al. (2020, “_On the Identification and Estimation of Endogenous Peer Effects in Multiplex Networks_”) and the Generalized Method of Moments (GMM) estimator in Chan et al. (2022, “_On the Estimation of Social Effects with Observational Network Data and Random Assignment_”)
 
 Author 1 name: [**Pablo Estrada**](https://pabloestradac.github.io/)  
 Author 1 from: _Emory University_, Atlanta, GA, USA  
