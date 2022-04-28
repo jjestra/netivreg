@@ -1,4 +1,4 @@
-# Code for the article "netivreg: Estimation of Peer Effects in Endogenous Social Networks"
+## Code for the article "netivreg: Estimation of Peer Effects in Endogenous Social Networks"
 
 The command ```netivreg''' implements the Generalized Three-Stage Least Squares (G3SLS) estimator developed in Estrada et al. (2020, “On the Identification and Estimation of Endogenous Peer Effects in Multiplex Networks”) and the Generalized Method of Moments (GMM) estimator in Chan et al. (2022, “On the Estimation of Social Effects with Observational Network Data and Random Assignment”)
 
@@ -26,17 +26,17 @@ Author 5 email: lfsanche@espol.edu.ec
 
 Files list and folders structure:
 
-	- data (folder): contains all data required to run the examples in the manuscript. The files include articles.dta, data_sim.dta, edges.dta, edges0.dta, W_sim.dta and W0_sim.dta.
+- data (folder): contains all data required to run the examples in the manuscript. The files include articles.dta, data_sim.dta, edges.dta, edges0.dta, W_sim.dta and W0_sim.dta.
 
-	- netivreg(folder): contains the Python script with the Generalized Three-Stage Least Squares and the Generalized Method of Moments estimators. The files include __init__.py, g3sls.py and gmm.py. 
+- netivreg(folder): contains the Python script with the Generalized Three-Stage Least Squares and the Generalized Method of Moments estimators. The files include __init__.py, g3sls.py and gmm.py. 
 
 The other files in the repository include:
 
- 	- The do file with the Stata code to run the examples in the manuscript called manuscript_output.do
+- The do file with the Stata code to run the examples in the manuscript called manuscript_output.do
 
-	- The ado file with the netivreg Stata code called netivreg.ado 
+- The ado file with the netivreg Stata code called netivreg.ado 
 
-	- The help file called netivreg.sthlp. 
+- The help file called netivreg.sthlp. 
 
 The order of the folders is essential to running the manuscript_output.do script, so please keep the structure in the code folder. 
 
