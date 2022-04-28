@@ -39,6 +39,6 @@ The other files in the repository include:
 
 The order of the folders is essential to running the ```manuscript_output.do``` script, so please keep the structure in the code folder. 
 
-After downloading the code, change the global path in the ```manuscript_output.do``` for the local path where you saved locally the code folder.  
+After downloading the code, change the global path in the ```manuscript_output.do``` to the local path where you saved locally the code folder.  
 
 Before running the do file, add the ```netivreg.ado``` to your Stata ado folder.
