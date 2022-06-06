@@ -21,6 +21,15 @@ Author 5 from: _ESPOL University_, Guayaquil, Guayas, Ecuador
 
 [Stata 16.0](https://www.stata.com/) and [Python 3.7](https://www.python.org/) or above are needed as well as the Python packages [networkX](https://networkx.org/), [numpy](https://numpy.org/), [pandas](https://pandas.pydata.org/), [scikit-learn](https://scikit-learn.org/), and [scipy](https://scipy.org/).
 
+The user is strongly encouraged to create a virtual environment with the required Python packages versions. For example, on Windows, the user can open a command prompt and create a conda environment using Anaconda as follows,
+
+```
+> conda create -n env_netivreg -c conda-forge python=3.8 ipykernel=6.13.0 networkx=2.4 numpy=1.20.1 pandas=1.2.4 scikit-learn=0.24.1 scipy=1.6.2
+> pip install stata-setup==0.1.2
+```
+
+
+
 ## Usage 
 
 Files list and folders structure:
