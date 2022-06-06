@@ -19,7 +19,15 @@ Author 5 from: _ESPOL University_, Guayaquil, Guayas, Ecuador
 
 ## Requirements
 
-[Stata 16.0](https://www.stata.com/) and [Python 3.7](https://www.python.org/) or above are needed as well as the Python packages [networkX](https://networkx.org/), [numpy](https://numpy.org/), [pandas](https://pandas.pydata.org/), [scikit-learn](https://scikit-learn.org/), and [scipy](https://scipy.org/).
+[Stata 16.0](https://www.stata.com/) and [Python 3.7](https://www.python.org/) or above are needed as well as the Python packages , , , , and .
+
+| Python Package | Version |
+| ----------- | ----------- |
+| [networkX](https://networkx.org/) | 2.4.x |
+| [numpy](https://numpy.org/) | 1.20.x |
+| [pandas](https://pandas.pydata.org/) | 1.2.x |
+| [scikit-learn](https://scikit-learn.org/) | 0.24.x |
+| [scipy](https://scipy.org/) | 1.6.x |
 
 The user is strongly encouraged to create a virtual environment with the required Python packages versions. For example, on Windows, the user can open a command prompt and create a conda environment using Anaconda as follows,
 
