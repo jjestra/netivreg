@@ -19,7 +19,7 @@ Author 5 from: _ESPOL University_, Guayaquil, Guayas, Ecuador
 
 ## Requirements
 
-[Stata 16.0](https://www.stata.com/) and [Python 3.7](https://www.python.org/) or above are needed as well as the Python packages , , , , and .
+[Stata 16.0](https://www.stata.com/) and [Python 3.7](https://www.python.org/) or above are needed as well as the following Python packages,
 
 | Python Package | Version |
 | ----------- | ----------- |
