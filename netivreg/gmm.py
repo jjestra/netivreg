@@ -7,8 +7,10 @@ __author__ = """ Juan Estrada  juan.jose.estrada.sosa@emory.edu
                  Pablo Estrada pablo.estrada@emory.edu """
 
 import numpy as np
-from scipy import sparse as sp
+from scipy import sparse as spr
 import networkx as nx
+
+__all__ = ["GMM"]
 
 
 class GMM():
@@ -53,7 +55,7 @@ class GMM():
     Attributes
     ----------
     params       : array
-                   (k+1)x+1 array of G3SLS coefficients
+                   array of GMM coefficients
     cov          : array
                    Variance covariance matrix
     """
@@ -92,14 +94,14 @@ class GMM():
                 P = sinv(wmatrix)
         except Exception:
             print('Invalid weight matrix')
-        Q = D.T @ Z @ P @ Z.T @ D
-        Q_inv = sinv(Q)
+        # Q = D.T @ Z @ P @ Z.T @ D
+        Q_inv = sinv(D.T @ Z @ P @ Z.T @ D)
         b_gmm = Q_inv @ D.T @ Z @ P @ Z.T @ y
 
         # 2. Variance-covariance matrix
 
         # Calculate network statistics required to calculate bw
-        G = nx.from_numpy_matrix(W.toarray())
+        G = nx.from_scipy_sparse_array(W)
         Gsub = G.subgraph(max(nx.connected_components(G), key=len))
         diameter = nx.diameter(Gsub)
         sp = dict(nx.shortest_path_length(G))
@@ -131,8 +133,8 @@ class GMM():
         if wmatrix == 'optimal':
             # Construct optimal weighting matrix
             P = sinv(Omega)
-            Q = D.T @ Z @ P @ Z.T @ D
-            Q_inv = sinv(Q)
+            # Q = D.T @ Z @ P @ Z.T @ D
+            Q_inv = sinv(D.T @ Z @ P @ Z.T @ D)
             b_gmm = Q_inv @ D.T @ Z @ P @ Z.T @ y
 
             # Calculate optimal Omega
@@ -196,9 +198,9 @@ def sinv(A):
     Find inverse of matrix A using numpy.linalg.solve
     Helpful for large matrices
     """
-    if sp.issparse(A):
+    if spr.issparse(A):
         n = A.shape[0]
-        Ai = sp.linalg.spsolve(A.tocsc(), sp.eye(n, format='csc'))
+        Ai = spr.linalg.spsolve(A.tocsc(), spr.identity(n, format='csc'))
     else:
         try:
             n = A.shape[0]
@@ -229,10 +231,6 @@ def omegad(coef, y, D, Z, short_path, dist):
                    iterator over (source, dictionary)
     dist         : integer
                    distance of neighbor j from node i
-
-    Returns
-    ----------
-    omegadv       : array
     """
     n = y.shape[0]
     y_hat = D @ coef

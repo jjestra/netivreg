@@ -19,24 +19,39 @@ Author 5 from: _ESPOL University_, Guayaquil, Guayas, Ecuador
 
 ## Requirements
 
-[Stata 16.0](https://www.stata.com/) and [Python 3.7](https://www.python.org/) or above are needed as well as the following Python packages,
+[Stata 16.0](https://www.stata.com/) and [Python 3.9](https://www.python.org/) or above are needed as well as the following Python packages,
 
 | Python Package | Version |
 | ----------- | ----------- |
-| [networkX](https://networkx.org/) | 2.4.x |
-| [numpy](https://numpy.org/) | 1.20.x |
-| [pandas](https://pandas.pydata.org/) | 1.2.x |
-| [scikit-learn](https://scikit-learn.org/) | 0.24.x |
-| [scipy](https://scipy.org/) | 1.6.x |
+| [networkX](https://networkx.org/) | 3.2.x |
+| [numpy](https://numpy.org/) | 1.26.x |
+| [pandas](https://pandas.pydata.org/) | 2.2.x |
+| [scikit-learn](https://scikit-learn.org/) | 1.5.x |
+| [scipy](https://scipy.org/) | 1.13.x |
 
 The user is strongly encouraged to create a virtual environment with the required Python packages versions. For example, on Windows, the user can open a command prompt and create a conda environment using Anaconda as follows,
 
 ```
-> conda create -n env_netivreg -c conda-forge python=3.8 ipykernel=6.13.0 networkx=2.4 numpy=1.20.1 pandas=1.2.4 scikit-learn=0.24.1 scipy=1.6.2
-> pip install stata-setup==0.1.2
+conda env create -f netivreg_env.yml
 ```
 
+Then, to recover the location of the environment, the user can run the following command in the command prompt,
 
+```
+conda env list
+```
+
+Finally, the user has to point Stata to the `netivreg_env` environment by running the following command in Stata,
+
+```
+python set exec <location>\bin\python3.9
+```
+
+where `<location>` could be `C:\Users\user\Anaconda3\envs\netivreg_env`. Alternatively, the user can point to the environment permanently by instead running the following command in Stata,
+
+```
+python set exec <location>\bin\python3.9, permanently
+```
 
 ## Usage 
 

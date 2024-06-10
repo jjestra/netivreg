@@ -75,7 +75,7 @@ program define netivreg, eclass
     qui count if `touse'
 
 
-    python: calc_netivreg("`estimator'", ///
+    python: exec_netivreg("`estimator'", ///
                           "`depvar'", "`exovar'", "`adjmat'", "`adjmat0'", ///
                           "`wx'", "`wz'", "`id'", ///
                           "`transformed'", "`cluster'", ///
@@ -187,18 +187,18 @@ from sfi import Data, Frame, Matrix, Scalar, Macro
 import netivreg
 
 
-def calc_netivreg(estimator, depvar, exovar, adjmat, adjmat0, wx, wz, id,
+def exec_netivreg(estimator, depvar, exovar, adjmat, adjmat0, wx, wz, id_,
                   transformed, cluster,
                   wmatrix, kernel, maxp, cons):
 
-    id = "id" if id == "" else id
+    id_ = "id" if id_ == "" else id_
     # Use the sfi Frame class to access data
-    list_cols = set([id, depvar] + exovar.split(" "))
-    if cluster != "": list_cols.add(cluster)
-    if wx != "": list_cols = list_cols.union(wx.split(" "))
-    if wz != "": list_cols = list_cols.union(wz.split(" "))
-    nodes_list = Frame.connect("default").get(" ".join(list_cols))
-    df_nodes = pd.DataFrame(nodes_list, columns=list_cols)
+    cols = set([id_, depvar] + exovar.split(" "))
+    if cluster != "": cols.add(cluster)
+    if wx != "": cols = cols.union(wx.split(" "))
+    if wz != "": cols = cols.union(wz.split(" "))
+    nodes_list = Frame.connect("default").get(" ".join(cols))
+    df_nodes = pd.DataFrame(nodes_list, columns=list(cols))
 
     # Use the sfi Frame class to access data
     edges_list = Frame.connect(adjmat).get()
@@ -208,19 +208,21 @@ def calc_netivreg(estimator, depvar, exovar, adjmat, adjmat0, wx, wz, id,
 
     # Create w
     G = nx.from_pandas_edgelist(df_edges, 0, 1, create_using=nx.DiGraph())
-    W = nx.adjacency_matrix(G, nodelist=df_nodes[id].unique())
+    G.add_nodes_from(df_nodes[id_].unique())
+    W = nx.adjacency_matrix(G, nodelist=df_nodes[id_].unique())
     W = normalize(W, norm='l1', axis=1)
 
     # Create w0
     G0 = nx.from_pandas_edgelist(df_edges0, 0, 1, create_using=nx.DiGraph())
-    W0 = nx.adjacency_matrix(G0, nodelist=df_nodes[id].unique())
+    G0.add_nodes_from(df_nodes[id_].unique())
+    W0 = nx.adjacency_matrix(G0, nodelist=df_nodes[id_].unique())
     W0 = normalize(W0, norm='l1', axis=1)
 
-    if len(set(G.nodes()).difference(df_nodes[id])) > 0:
-        print("Warning:", len(set(G.nodes()).difference(df_nodes[id])),
+    if len(set(G.nodes()).difference(df_nodes[id_])) > 0:
+        print("Warning:", len(set(G.nodes()).difference(df_nodes[id_])),
               "nodes from W matrix not in S matrix.")
-    if len(set(G0.nodes()).difference(df_nodes[id])) > 0:
-        print("Warning:", len(set(G0.nodes()).difference(df_nodes[id])),
+    if len(set(G0.nodes()).difference(df_nodes[id_])) > 0:
+        print("Warning:", len(set(G0.nodes()).difference(df_nodes[id_])),
               "nodes from W0 matrix not in S matrix.")
 
     wexovar = [] if wx == "" else wx.split(" ")

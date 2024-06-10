@@ -7,7 +7,7 @@ __author__ = """ Juan Estrada  juan.jose.estrada.sosa@emory.edu
                  Pablo Estrada pablo.estrada@emory.edu """
 
 import numpy as np
-from scipy import sparse as sp
+from scipy import sparse as spr
 from scipy.linalg import block_diag
 import pandas as pd
 
@@ -40,19 +40,26 @@ class G3SLS():
                    Predetermined adjacency matrix object
     dim          : string
                    Name of dimension for which the sample is repeated
+                   If repeater cross-section
     tr           : boolean
                    if True, estimate transformed model (I-W0)
-                   if False, don't use tranformation
     cluster      : string
                    if name_string, use cluster standard errors
-                   if None, dom't use cluster standard errors
 
     Attributes
     ----------
     params       : array
-                   (k+1)x+1 array of G3SLS coefficients
+                   array of G3SLS coefficients
     cov          : array
                    Variance covariance matrix
+    params_1s    : array
+                   array of 1st stage coefficients
+    cov_1s       : array
+                   Variance covariance matrix of 1st stage
+    params_2s    : array
+                   array of 2SLS coefficients
+    cov_2s       : array
+                   Variance covariance matrix of 2SLS
     """
 
     def __init__(self,
@@ -66,13 +73,13 @@ class G3SLS():
         m = 1 if dim is None else dta[dim].nunique()
         N = dta.shape[0]
         n = N // m
-        I = sp.identity(N)
+        I = spr.identity(N)
         one = np.ones((N, 1))
         y = dta[[name_y]].values
         X = dta[name_x].values
         Xs = dta[name_xs].values
-        W = sp.kron(sp.identity(m), W) if m > 1 else W
-        W0 = sp.kron(sp.identity(m), W0) if m > 1 else W0
+        W = spr.kron(spr.identity(m), W) if m > 1 else W
+        W0 = spr.kron(spr.identity(m), W0) if m > 1 else W0
         Wy = (I-W0) @ W @ y if tr else W @ y
         WX = (I-W0) @ W @ Xs if tr else W @ Xs
         W0y = (I-W0) @ W0 @ y if tr else W0 @ y
@@ -234,9 +241,9 @@ def sinv(A):
     Find inverse of matrix A using numpy.linalg.solve
     Helpful for large matrices
     """
-    if sp.issparse(A):
+    if spr.issparse(A):
         n = A.shape[0]
-        Ai = sp.linalg.spsolve(A.tocsc(), sp.eye(n, format='csc'))
+        Ai = spr.linalg.spsolve(A.tocsc(), spr.identity(n, format='csc'))
     else:
         try:
             n = A.shape[0]
