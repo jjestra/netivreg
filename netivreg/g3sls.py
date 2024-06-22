@@ -9,7 +9,6 @@ __author__ = """ Juan Estrada  juan.jose.estrada.sosa@emory.edu
 import numpy as np
 from scipy import sparse as spr
 from scipy.linalg import block_diag
-import pandas as pd
 
 __all__ = ["G3SLS"]
 
@@ -124,8 +123,7 @@ class G3SLS():
             V_2sls = scale * Q2_inv @ Qomega2 @ Q2_inv
         else:
             Ze = Z * e_st
-            Ze_sum = pd.DataFrame(Ze).set_index(g_cluster).sum(level=0)
-            Ze_sum = np.array(Ze_sum)
+            Ze_sum = np.vstack([np.bincount(g_cluster, weights=v) for v in Ze.T]).T
             omega2 = Ze_sum.T @ Ze_sum
             Qomega2 = D0.T @ Z @ Qz_inv @ omega2 @ Qz_inv @ Z.T @ D0
             scale = n / (n - 1) * (N - 1) / (N - K)
@@ -153,8 +151,7 @@ class G3SLS():
             V_g2sls = scale * Q3_inv @ (Zt.T @ omega3 @ Zt) @ Q3_inv.T
         else:
             Ze = Zt * e
-            Ze_sum = pd.DataFrame(Ze).set_index(g_cluster).sum(level=0)
-            Ze_sum = np.array(Ze_sum)
+            Ze_sum = np.vstack([np.bincount(g_cluster, weights=v) for v in Ze.T]).T
             omega3 = Ze_sum.T @ Ze_sum
             scale = n / (n - 1) * (N - 1) / (N - Zt.shape[1])
             V_g2sls = scale * Q3_inv @ omega3 @ Q3_inv.T

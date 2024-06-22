@@ -32,16 +32,16 @@ Author 5 from: _ESPOL University_, Guayaquil, Guayas, Ecuador
 The user is strongly encouraged to create a virtual environment with the required Python packages versions. For example, on Windows, the user can open a command prompt and create a conda environment using Anaconda as follows,
 
 ```
-conda env create -f netivreg_env.yml
+conda create -n netivreg_env python=3.9 pip networkx=3.2 numpy=1.26 pandas=2.2 scikit-learn=1.5 scipy=1.13
 ```
 
-Then, to recover the location of the environment, the user can run the following command in the command prompt,
+Then, to recover the location path of the environment `netivreg_env`, the user can run the following command in the command prompt,
 
 ```
 conda env list
 ```
 
-Finally, the user has to point Stata to the `netivreg_env` environment by running the following command in Stata,
+After creating the environment and obtaining its location, the user has to point Stata to the `netivreg_env` environment by running the following command in Stata,
 
 ```
 python set exec <location>\bin\python3.9

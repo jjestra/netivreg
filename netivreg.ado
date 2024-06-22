@@ -67,7 +67,8 @@ program define netivreg, eclass
                                           TRansformed CLuster(string) ///
                                           FIRST SECOND ///
                                           WMATrix(string) KERNEL(string) ///
-                                          MAXP(integer 2) CONS(real 1.8)]
+                                          MAXP(integer 2) CONS(real 1.8) ///
+                                          UNDIRected]
     tempvar touse
     tempname b V Pi VarPi b2sls Var2sls
 
@@ -79,7 +80,7 @@ program define netivreg, eclass
                           "`depvar'", "`exovar'", "`adjmat'", "`adjmat0'", ///
                           "`wx'", "`wz'", "`id'", ///
                           "`transformed'", "`cluster'", ///
-                          "`wmatrix'", "`kernel'", `maxp', `cons')
+                          "`wmatrix'", "`kernel'", `maxp', `cons', "`undirected'")
 
     matrix `b' = r(b)'
     matrix `V' = r(V)
@@ -189,7 +190,7 @@ import netivreg
 
 def exec_netivreg(estimator, depvar, exovar, adjmat, adjmat0, wx, wz, id_,
                   transformed, cluster,
-                  wmatrix, kernel, maxp, cons):
+                  wmatrix, kernel, maxp, cons, undirected):
 
     id_ = "id" if id_ == "" else id_
     # Use the sfi Frame class to access data
@@ -207,13 +208,19 @@ def exec_netivreg(estimator, depvar, exovar, adjmat, adjmat0, wx, wz, id_,
     df_edges0 = pd.DataFrame(edges_list0)
 
     # Create w
-    G = nx.from_pandas_edgelist(df_edges, 0, 1, create_using=nx.DiGraph())
+    if undirected == "":
+        G = nx.from_pandas_edgelist(df_edges, 0, 1, create_using=nx.DiGraph())
+    else:
+        G = nx.from_pandas_edgelist(df_edges, 0, 1, create_using=nx.Graph())
     G.add_nodes_from(df_nodes[id_].unique())
     W = nx.adjacency_matrix(G, nodelist=df_nodes[id_].unique())
     W = normalize(W, norm='l1', axis=1)
 
     # Create w0
-    G0 = nx.from_pandas_edgelist(df_edges0, 0, 1, create_using=nx.DiGraph())
+    if undirected == "":
+        G0 = nx.from_pandas_edgelist(df_edges0, 0, 1, create_using=nx.DiGraph())
+    else:
+        G0 = nx.from_pandas_edgelist(df_edges0, 0, 1, create_using=nx.Graph())
     G0.add_nodes_from(df_nodes[id_].unique())
     W0 = nx.adjacency_matrix(G0, nodelist=df_nodes[id_].unique())
     W0 = normalize(W0, norm='l1', axis=1)
