@@ -1,6 +1,4 @@
-capture program drop netivreg
-
-*! netivreg v0.0.1 Pablo Estrada 18nov2019
+*! netivreg v1.0.0 Pablo Estrada 7oct2024
 
 program define netivreg, eclass
     version 16.0
