@@ -43,17 +43,17 @@ _ESPOL University_, Guayaquil, Guayas, Ecuador
    After installing Python, you need to link it to Stata. Open Stata and use the following command to set the Python version:
    ```stata
    python set exec <location>\bin\python3.9
-
+    ```
    Replace <location> with the actual path to your Python installation, typically found within the Anaconda folder.
 
 3. **Create a Python Environment for netivreg:**
    To ensure backward compatibility and avoid version conflicts, create a dedicated environment for netivreg with the required Python packages. 
    Open a command prompt and run the following command:
 
-   ```
+   ```bash
    conda create -n netivreg_env python=3.9 pip networkx=3.2 numpy=1.26 pandas=2.2 scikit-learn=1.5 scipy=1.13
    ```
-        
+
 
 The user is strongly encouraged to create a virtual environment with the required Python packages versions. For example, on Windows, the user can open a command prompt and create a conda environment using Anaconda as follows,
 
