@@ -1,0 +1,592 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}netivreg output log
+       {txt}log:  {res}C:\Users\leona\OneDrive\1_WP\Net_ivreg\netivreg\netivregOUT_test.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res} 8 Oct 2024, 12:05:40
+{txt}
+{com}. 
+. *-- Load Nodes Simulated Data
+. use data/data_sim.dta, clear
+{txt}
+{com}. format y_endo y_exo x1 x2 x3 x4 %9.3f
+{txt}
+{com}. list in 1/5, table 
+{txt}
+     {c TLC}{hline 4}{c -}{hline 7}{c -}{hline 8}{c -}{hline 8}{c -}{hline 7}{c -}{hline 8}{c -}{hline 8}{c TRC}
+     {c |} {res}id   y_exo   y_endo       x1      x2       x3       x4 {txt}{c |}
+     {c LT}{hline 4}{c -}{hline 7}{c -}{hline 8}{c -}{hline 8}{c -}{hline 7}{c -}{hline 8}{c -}{hline 8}{c RT}
+  1. {c |} {res} 1   4.072    4.555   -0.523   0.926    2.136   -0.546 {txt}{c |}
+  2. {c |} {res} 2   4.584    4.665    2.611   1.455   -0.926    0.759 {txt}{c |}
+  3. {c |} {res} 3   3.887    3.671    3.125   0.513   -2.718   -2.132 {txt}{c |}
+  4. {c |} {res} 4   3.736    3.962   -2.674   1.504    1.769    0.091 {txt}{c |}
+  5. {c |} {res} 5   6.360    7.002   -0.993   0.345    1.126    1.120 {txt}{c |}
+     {c BLC}{hline 4}{c -}{hline 7}{c -}{hline 8}{c -}{hline 8}{c -}{hline 7}{c -}{hline 8}{c -}{hline 8}{c BRC}
+
+{com}. 
+. *-- Load W Simulated Data
+. use data/W_sim.dta, clear
+{txt}
+{com}. list in 113/117, table 
+{txt}
+     {c TLC}{hline 8}{c -}{hline 8}{c TRC}
+     {c |} {res}source   target {txt}{c |}
+     {c LT}{hline 8}{c -}{hline 8}{c RT}
+113. {c |} {res}    28      259 {txt}{c |}
+114. {c |} {res}    28      361 {txt}{c |}
+115. {c |} {res}    29       67 {txt}{c |}
+116. {c |} {res}    29       79 {txt}{c |}
+117. {c |} {res}    29      196 {txt}{c |}
+     {c BLC}{hline 8}{c -}{hline 8}{c BRC}
+
+{com}. 
+. *-- Load W0 Simulated Data
+. use data/W0_sim.dta, clear
+{txt}
+{com}. list in 113/117, table 
+{txt}
+     {c TLC}{hline 8}{c -}{hline 8}{c TRC}
+     {c |} {res}source   target {txt}{c |}
+     {c LT}{hline 8}{c -}{hline 8}{c RT}
+113. {c |} {res}    30      167 {txt}{c |}
+114. {c |} {res}    30      325 {txt}{c |}
+115. {c |} {res}    31       38 {txt}{c |}
+116. {c |} {res}    31       83 {txt}{c |}
+117. {c |} {res}    31      132 {txt}{c |}
+     {c BLC}{hline 8}{c -}{hline 8}{c BRC}
+
+{com}. 
+. *-- netivreg: Exogenous (G2SLS)
+. use data/data_sim.dta
+{txt}
+{com}. frame create edges
+{txt}
+{com}. frame edges: use data/W_sim.dta
+{txt}
+{com}. netivreg g3sls y_exo x1 x2 x3 x4 (edges = edges)
+
+Network IV (G3SLS) Regression{txt}{col 55}Number of obs = {res}     400
+{txt}{col 55}Wald chi2({res}10{txt})  = {res} 2021.41
+{txt}{col 55}Prob > chi2   = {res}  0.0000
+{txt}{col 55}R-squared     = {res}  0.8571
+{txt}{col 55}Root MSE      = {res}    .966
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}       y_exo{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}W_y          {txt}{c |}
+{space 7}y_exo {c |}{col 14}{res}{space 2} .7187389{col 26}{space 2} .0459317{col 37}{space 1}   15.65{col 46}{space 3}0.000{col 54}{space 4} .6284341{col 67}{space 3} .8090436
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}W_x          {txt}{c |}
+{space 10}x1 {c |}{col 14}{res}{space 2} .3628661{col 26}{space 2} .0614882{col 37}{space 1}    5.90{col 46}{space 3}0.000{col 54}{space 4} .2419763{col 67}{space 3} .4837559
+{txt}{space 10}x2 {c |}{col 14}{res}{space 2} .3197861{col 26}{space 2}  .051635{col 37}{space 1}    6.19{col 46}{space 3}0.000{col 54}{space 4} .2182683{col 67}{space 3}  .421304
+{txt}{space 10}x3 {c |}{col 14}{res}{space 2} .3968142{col 26}{space 2} .0558112{col 37}{space 1}    7.11{col 46}{space 3}0.000{col 54}{space 4} .2870856{col 67}{space 3} .5065427
+{txt}{space 10}x4 {c |}{col 14}{res}{space 2} .0671387{col 26}{space 2} .0886706{col 37}{space 1}    0.76{col 46}{space 3}0.449{col 54}{space 4}-.1071935{col 67}{space 3} .2414709
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}X            {txt}{c |}
+{space 10}x1 {c |}{col 14}{res}{space 2} .3749567{col 26}{space 2} .0303577{col 37}{space 1}   12.35{col 46}{space 3}0.000{col 54}{space 4} .3152716{col 67}{space 3} .4346419
+{txt}{space 10}x2 {c |}{col 14}{res}{space 2} .3971781{col 26}{space 2} .0302632{col 37}{space 1}   13.12{col 46}{space 3}0.000{col 54}{space 4} .3376787{col 67}{space 3} .4566774
+{txt}{space 10}x3 {c |}{col 14}{res}{space 2} .3118756{col 26}{space 2} .0282055{col 37}{space 1}   11.06{col 46}{space 3}0.000{col 54}{space 4} .2564218{col 67}{space 3} .3673295
+{txt}{space 10}x4 {c |}{col 14}{res}{space 2} .0614943{col 26}{space 2} .0490757{col 37}{space 1}    1.25{col 46}{space 3}0.211{col 54}{space 4}-.0349917{col 67}{space 3} .1579803
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .9875521{col 26}{space 2} .1453766{col 37}{space 1}    6.79{col 46}{space 3}0.000{col 54}{space 4} .7017322{col 67}{space 3} 1.273372
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{com}. 
+. *-- netivreg: Exogenous (G3SLS)
+. frame create edges0
+{txt}
+{com}. frame edges0: use data/W0_sim.dta
+{txt}
+{com}. netivreg g3sls y_exo x1 x2 x3 x4 (edges = edges0) 
+
+Network IV (G3SLS) Regression{txt}{col 55}Number of obs = {res}     400
+{txt}{col 55}Wald chi2({res}10{txt})  = {res} 1495.20
+{txt}{col 55}Prob > chi2   = {res}  0.0000
+{txt}{col 55}R-squared     = {res}  0.8562
+{txt}{col 55}Root MSE      = {res}   .9712
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}       y_exo{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}W_y          {txt}{c |}
+{space 7}y_exo {c |}{col 14}{res}{space 2} .7066647{col 26}{space 2} .0675054{col 37}{space 1}   10.47{col 46}{space 3}0.000{col 54}{space 4} .5739446{col 67}{space 3} .8393847
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}W_x          {txt}{c |}
+{space 10}x1 {c |}{col 14}{res}{space 2} .3804765{col 26}{space 2} .0824964{col 37}{space 1}    4.61{col 46}{space 3}0.000{col 54}{space 4} .2182832{col 67}{space 3} .5426697
+{txt}{space 10}x2 {c |}{col 14}{res}{space 2}  .328785{col 26}{space 2} .0662719{col 37}{space 1}    4.96{col 46}{space 3}0.000{col 54}{space 4} .1984902{col 67}{space 3} .4590798
+{txt}{space 10}x3 {c |}{col 14}{res}{space 2} .4072332{col 26}{space 2} .0686797{col 37}{space 1}    5.93{col 46}{space 3}0.000{col 54}{space 4} .2722045{col 67}{space 3} .5422619
+{txt}{space 10}x4 {c |}{col 14}{res}{space 2} .0585146{col 26}{space 2} .1069111{col 37}{space 1}    0.55{col 46}{space 3}0.584{col 54}{space 4}-.1516796{col 67}{space 3} .2687087
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}X            {txt}{c |}
+{space 10}x1 {c |}{col 14}{res}{space 2}  .371649{col 26}{space 2} .0390688{col 37}{space 1}    9.51{col 46}{space 3}0.000{col 54}{space 4} .2948372{col 67}{space 3} .4484607
+{txt}{space 10}x2 {c |}{col 14}{res}{space 2} .3661416{col 26}{space 2} .0339244{col 37}{space 1}   10.79{col 46}{space 3}0.000{col 54}{space 4}  .299444{col 67}{space 3} .4328392
+{txt}{space 10}x3 {c |}{col 14}{res}{space 2} .3176699{col 26}{space 2} .0329671{col 37}{space 1}    9.64{col 46}{space 3}0.000{col 54}{space 4} .2528543{col 67}{space 3} .3824855
+{txt}{space 10}x4 {c |}{col 14}{res}{space 2} .0702635{col 26}{space 2} .0545833{col 37}{space 1}    1.29{col 46}{space 3}0.199{col 54}{space 4}-.0370508{col 67}{space 3} .1775777
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 1.014104{col 26}{space 2} .2062919{col 37}{space 1}    4.92{col 46}{space 3}0.000{col 54}{space 4} .6085203{col 67}{space 3} 1.419687
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{com}. 
+. *-- netivreg: Exogenous (GMM)
+. netivreg gmm y_exo x1 x2 x3 x4 (edges = edges0) 
+
+Network IV (GMM) Regression{txt}{col 55}Number of obs = {res}     400
+{txt}{col 55}Wald chi2({res}10{txt})  = {res} 2595.42
+{txt}{col 55}Prob > chi2   = {res}  0.0000
+{txt}{col 55}R-squared     = {res}  0.8528
+{txt}{col 55}Root MSE      = {res}   .9813
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}       y_exo{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}W_y          {txt}{c |}
+{space 7}y_exo {c |}{col 14}{res}{space 2} .6724429{col 26}{space 2} .0641775{col 37}{space 1}   10.48{col 46}{space 3}0.000{col 54}{space 4} .5462656{col 67}{space 3} .7986201
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}W_x          {txt}{c |}
+{space 10}x1 {c |}{col 14}{res}{space 2} .4260427{col 26}{space 2} .0713216{col 37}{space 1}    5.97{col 46}{space 3}0.000{col 54}{space 4} .2858197{col 67}{space 3} .5662657
+{txt}{space 10}x2 {c |}{col 14}{res}{space 2} .3527208{col 26}{space 2} .0503766{col 37}{space 1}    7.00{col 46}{space 3}0.000{col 54}{space 4} .2536772{col 67}{space 3} .4517644
+{txt}{space 10}x3 {c |}{col 14}{res}{space 2} .4349574{col 26}{space 2}  .057245{col 37}{space 1}    7.60{col 46}{space 3}0.000{col 54}{space 4} .3224099{col 67}{space 3} .5475048
+{txt}{space 10}x4 {c |}{col 14}{res}{space 2} .0389376{col 26}{space 2} .0578986{col 37}{space 1}    0.67{col 46}{space 3}0.502{col 54}{space 4}-.0748949{col 67}{space 3}   .15277
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}X            {txt}{c |}
+{space 10}x1 {c |}{col 14}{res}{space 2} .3812431{col 26}{space 2} .0281434{col 37}{space 1}   13.55{col 46}{space 3}0.000{col 54}{space 4} .3259113{col 67}{space 3} .4365748
+{txt}{space 10}x2 {c |}{col 14}{res}{space 2} .4107493{col 26}{space 2} .0194691{col 37}{space 1}   21.10{col 46}{space 3}0.000{col 54}{space 4} .3724718{col 67}{space 3} .4490268
+{txt}{space 10}x3 {c |}{col 14}{res}{space 2} .3255457{col 26}{space 2} .0189618{col 37}{space 1}   17.17{col 46}{space 3}0.000{col 54}{space 4} .2882657{col 67}{space 3} .3628258
+{txt}{space 10}x4 {c |}{col 14}{res}{space 2} .0422976{col 26}{space 2} .0460273{col 37}{space 1}    0.92{col 46}{space 3}0.359{col 54}{space 4}-.0481951{col 67}{space 3} .1327904
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 1.090851{col 26}{space 2}  .203117{col 37}{space 1}    5.37{col 46}{space 3}0.000{col 54}{space 4} .6915098{col 67}{space 3} 1.490192
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{com}. 
+. *-- netivreg: Endogenous (G3SLS)
+. netivreg g3sls y_endo x1 x2 x3 x4 (edges = edges0)
+
+Network IV (G3SLS) Regression{txt}{col 55}Number of obs = {res}     400
+{txt}{col 55}Wald chi2({res}10{txt})  = {res}  822.26
+{txt}{col 55}Prob > chi2   = {res}  0.0000
+{txt}{col 55}R-squared     = {res}  0.8176
+{txt}{col 55}Root MSE      = {res}   1.194
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}      y_endo{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}W_y          {txt}{c |}
+{space 6}y_endo {c |}{col 14}{res}{space 2} .7059194{col 26}{space 2} .0934719{col 37}{space 1}    7.55{col 46}{space 3}0.000{col 54}{space 4} .5221476{col 67}{space 3} .8896911
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}W_x          {txt}{c |}
+{space 10}x1 {c |}{col 14}{res}{space 2} .3464024{col 26}{space 2} .1277675{col 37}{space 1}    2.71{col 46}{space 3}0.007{col 54}{space 4} .0952031{col 67}{space 3} .5976017
+{txt}{space 10}x2 {c |}{col 14}{res}{space 2} .3280795{col 26}{space 2} .0870187{col 37}{space 1}    3.77{col 46}{space 3}0.000{col 54}{space 4} .1569951{col 67}{space 3} .4991639
+{txt}{space 10}x3 {c |}{col 14}{res}{space 2} .3615469{col 26}{space 2} .0926147{col 37}{space 1}    3.90{col 46}{space 3}0.000{col 54}{space 4} .1794604{col 67}{space 3} .5436334
+{txt}{space 10}x4 {c |}{col 14}{res}{space 2} .0500988{col 26}{space 2} .1476019{col 37}{space 1}    0.34{col 46}{space 3}0.734{col 54}{space 4}-.2400962{col 67}{space 3} .3402939
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}X            {txt}{c |}
+{space 10}x1 {c |}{col 14}{res}{space 2} .3782985{col 26}{space 2} .0560235{col 37}{space 1}    6.75{col 46}{space 3}0.000{col 54}{space 4} .2681526{col 67}{space 3} .4884443
+{txt}{space 10}x2 {c |}{col 14}{res}{space 2} .3287283{col 26}{space 2} .0426851{col 37}{space 1}    7.70{col 46}{space 3}0.000{col 54}{space 4} .2448066{col 67}{space 3} .4126499
+{txt}{space 10}x3 {c |}{col 14}{res}{space 2} .3442047{col 26}{space 2} .0483468{col 37}{space 1}    7.12{col 46}{space 3}0.000{col 54}{space 4} .2491518{col 67}{space 3} .4392576
+{txt}{space 10}x4 {c |}{col 14}{res}{space 2} .0895948{col 26}{space 2} .0745045{col 37}{space 1}    1.20{col 46}{space 3}0.230{col 54}{space 4}-.0568859{col 67}{space 3} .2360756
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 1.035534{col 26}{space 2} .3189017{col 37}{space 1}    3.25{col 46}{space 3}0.001{col 54}{space 4} .4085523{col 67}{space 3} 1.662515
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{com}. 
+. *-- netivreg: Endogenous (GMM)
+. netivreg gmm y_endo x1 x2 x3 x4 (edges = edges0)
+
+Network IV (GMM) Regression{txt}{col 55}Number of obs = {res}     400
+{txt}{col 55}Wald chi2({res}10{txt})  = {res} 5414.09
+{txt}{col 55}Prob > chi2   = {res}  0.0000
+{txt}{col 55}R-squared     = {res}  0.8166
+{txt}{col 55}Root MSE      = {res}   1.194
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}      y_endo{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}W_y          {txt}{c |}
+{space 6}y_endo {c |}{col 14}{res}{space 2} .7039281{col 26}{space 2}  .076149{col 37}{space 1}    9.24{col 46}{space 3}0.000{col 54}{space 4} .5542141{col 67}{space 3}  .853642
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}W_x          {txt}{c |}
+{space 10}x1 {c |}{col 14}{res}{space 2} .3493545{col 26}{space 2} .0781754{col 37}{space 1}    4.47{col 46}{space 3}0.000{col 54}{space 4} .1956565{col 67}{space 3} .5030524
+{txt}{space 10}x2 {c |}{col 14}{res}{space 2} .3245619{col 26}{space 2} .0617699{col 37}{space 1}    5.25{col 46}{space 3}0.000{col 54}{space 4} .2031183{col 67}{space 3} .4460055
+{txt}{space 10}x3 {c |}{col 14}{res}{space 2} .3614537{col 26}{space 2} .0623149{col 37}{space 1}    5.80{col 46}{space 3}0.000{col 54}{space 4} .2389385{col 67}{space 3} .4839689
+{txt}{space 10}x4 {c |}{col 14}{res}{space 2} .0621016{col 26}{space 2} .0714393{col 37}{space 1}    0.87{col 46}{space 3}0.385{col 54}{space 4}-.0783528{col 67}{space 3} .2025561
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}X            {txt}{c |}
+{space 10}x1 {c |}{col 14}{res}{space 2} .3877009{col 26}{space 2} .0324968{col 37}{space 1}   11.93{col 46}{space 3}0.000{col 54}{space 4}   .32381{col 67}{space 3} .4515918
+{txt}{space 10}x2 {c |}{col 14}{res}{space 2} .3859661{col 26}{space 2} .0204085{col 37}{space 1}   18.91{col 46}{space 3}0.000{col 54}{space 4} .3458416{col 67}{space 3} .4260905
+{txt}{space 10}x3 {c |}{col 14}{res}{space 2} .3290334{col 26}{space 2} .0246893{col 37}{space 1}   13.33{col 46}{space 3}0.000{col 54}{space 4} .2804925{col 67}{space 3} .3775742
+{txt}{space 10}x4 {c |}{col 14}{res}{space 2} .0275173{col 26}{space 2} .0521742{col 37}{space 1}    0.53{col 46}{space 3}0.598{col 54}{space 4}-.0750606{col 67}{space 3} .1300951
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 1.025602{col 26}{space 2} .2586684{col 37}{space 1}    3.96{col 46}{space 3}0.000{col 54}{space 4} .5170425{col 67}{space 3} 1.534161
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{com}. 
+. *-- netivreg: Endogenous (G3SLS) first
+. netivreg g3sls y_endo x1 x2 x3 x4 (edges = edges0), first
+
+Projection of W on W0
+{res}{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}W_y_endo     {txt}{c |}
+{space 3}W0_y_endo {c |}{col 14}{res}{space 2} .9927161{col 26}{space 2} .0110994{col 37}{space 1}   89.44{col 46}{space 3}0.000{col 54}{space 4} .9708939{col 67}{space 3} 1.014538
+{txt}{space 7}W0_x1 {c |}{col 14}{res}{space 2} .0038403{col 26}{space 2} .0419735{col 37}{space 1}    0.09{col 46}{space 3}0.927{col 54}{space 4}-.0786823{col 67}{space 3}  .086363
+{txt}{space 7}W0_x2 {c |}{col 14}{res}{space 2}-.0030277{col 26}{space 2} .0372046{col 37}{space 1}   -0.08{col 46}{space 3}0.935{col 54}{space 4}-.0761744{col 67}{space 3}  .070119
+{txt}{space 7}W0_x3 {c |}{col 14}{res}{space 2} .0010825{col 26}{space 2} .0378073{col 37}{space 1}    0.03{col 46}{space 3}0.977{col 54}{space 4}-.0732492{col 67}{space 3} .0754142
+{txt}{space 7}W0_x4 {c |}{col 14}{res}{space 2}  .002885{col 26}{space 2} .0664465{col 37}{space 1}    0.04{col 46}{space 3}0.965{col 54}{space 4}-.1277531{col 67}{space 3}  .133523
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}W_x1         {txt}{c |}
+{space 3}W0_y_endo {c |}{col 14}{res}{space 2}-.0924276{col 26}{space 2} .0041002{col 37}{space 1}  -22.54{col 46}{space 3}0.000{col 54}{space 4}-.1004889{col 67}{space 3}-.0843663
+{txt}{space 7}W0_x1 {c |}{col 14}{res}{space 2} .8743972{col 26}{space 2} .0155054{col 37}{space 1}   56.39{col 46}{space 3}0.000{col 54}{space 4} .8439126{col 67}{space 3} .9048817
+{txt}{space 7}W0_x2 {c |}{col 14}{res}{space 2} .0074888{col 26}{space 2} .0137437{col 37}{space 1}    0.54{col 46}{space 3}0.586{col 54}{space 4}-.0195322{col 67}{space 3} .0345098
+{txt}{space 7}W0_x3 {c |}{col 14}{res}{space 2} .0466023{col 26}{space 2} .0139664{col 37}{space 1}    3.34{col 46}{space 3}0.001{col 54}{space 4} .0191436{col 67}{space 3} .0740611
+{txt}{space 7}W0_x4 {c |}{col 14}{res}{space 2} .0143088{col 26}{space 2} .0245459{col 37}{space 1}    0.58{col 46}{space 3}0.560{col 54}{space 4}  -.03395{col 67}{space 3} .0625676
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}W_x2         {txt}{c |}
+{space 3}W0_y_endo {c |}{col 14}{res}{space 2}-.0142514{col 26}{space 2} .0034378{col 37}{space 1}   -4.15{col 46}{space 3}0.000{col 54}{space 4}-.0210103{col 67}{space 3}-.0074925
+{txt}{space 7}W0_x1 {c |}{col 14}{res}{space 2} -.010898{col 26}{space 2} .0130003{col 37}{space 1}   -0.84{col 46}{space 3}0.402{col 54}{space 4}-.0364575{col 67}{space 3} .0146614
+{txt}{space 7}W0_x2 {c |}{col 14}{res}{space 2} .9506398{col 26}{space 2} .0115233{col 37}{space 1}   82.50{col 46}{space 3}0.000{col 54}{space 4} .9279843{col 67}{space 3} .9732953
+{txt}{space 7}W0_x3 {c |}{col 14}{res}{space 2} .0197406{col 26}{space 2} .0117099{col 37}{space 1}    1.69{col 46}{space 3}0.093{col 54}{space 4}-.0032819{col 67}{space 3} .0427631
+{txt}{space 7}W0_x4 {c |}{col 14}{res}{space 2} .0103946{col 26}{space 2} .0205802{col 37}{space 1}    0.51{col 46}{space 3}0.614{col 54}{space 4}-.0300675{col 67}{space 3} .0508567
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}W_x3         {txt}{c |}
+{space 3}W0_y_endo {c |}{col 14}{res}{space 2}-.0311842{col 26}{space 2} .0037837{col 37}{space 1}   -8.24{col 46}{space 3}0.000{col 54}{space 4}-.0386233{col 67}{space 3}-.0237451
+{txt}{space 7}W0_x1 {c |}{col 14}{res}{space 2} .0378469{col 26}{space 2} .0143085{col 37}{space 1}    2.65{col 46}{space 3}0.008{col 54}{space 4} .0097153{col 67}{space 3} .0659784
+{txt}{space 7}W0_x2 {c |}{col 14}{res}{space 2} .0052678{col 26}{space 2} .0126829{col 37}{space 1}    0.42{col 46}{space 3}0.678{col 54}{space 4}-.0196675{col 67}{space 3} .0302031
+{txt}{space 7}W0_x3 {c |}{col 14}{res}{space 2} .9225525{col 26}{space 2} .0128883{col 37}{space 1}   71.58{col 46}{space 3}0.000{col 54}{space 4} .8972132{col 67}{space 3} .9478918
+{txt}{space 7}W0_x4 {c |}{col 14}{res}{space 2}-.0186094{col 26}{space 2} .0226513{col 37}{space 1}   -0.82{col 46}{space 3}0.412{col 54}{space 4}-.0631432{col 67}{space 3} .0259244
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}W_x4         {txt}{c |}
+{space 3}W0_y_endo {c |}{col 14}{res}{space 2} .0140097{col 26}{space 2} .0025567{col 37}{space 1}    5.48{col 46}{space 3}0.000{col 54}{space 4} .0089831{col 67}{space 3} .0190363
+{txt}{space 7}W0_x1 {c |}{col 14}{res}{space 2} .0419752{col 26}{space 2} .0096683{col 37}{space 1}    4.34{col 46}{space 3}0.000{col 54}{space 4} .0229667{col 67}{space 3} .0609838
+{txt}{space 7}W0_x2 {c |}{col 14}{res}{space 2}  .021705{col 26}{space 2} .0085698{col 37}{space 1}    2.53{col 46}{space 3}0.012{col 54}{space 4} .0048561{col 67}{space 3} .0385539
+{txt}{space 7}W0_x3 {c |}{col 14}{res}{space 2}-.0496623{col 26}{space 2} .0087087{col 37}{space 1}   -5.70{col 46}{space 3}0.000{col 54}{space 4}-.0667841{col 67}{space 3}-.0325404
+{txt}{space 7}W0_x4 {c |}{col 14}{res}{space 2} .8994643{col 26}{space 2} .0153055{col 37}{space 1}   58.77{col 46}{space 3}0.000{col 54}{space 4} .8693726{col 67}{space 3} .9295559
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+
+Network IV (G3SLS) Regression{col 55}Number of obs = {res}     400
+{txt}{col 55}Wald chi2({res}10{txt})  = {res}  822.26
+{txt}{col 55}Prob > chi2   = {res}  0.0000
+{txt}{col 55}R-squared     = {res}  0.8176
+{txt}{col 55}Root MSE      = {res}   1.194
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}      y_endo{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}W_y          {txt}{c |}
+{space 6}y_endo {c |}{col 14}{res}{space 2} .7059194{col 26}{space 2} .0934719{col 37}{space 1}    7.55{col 46}{space 3}0.000{col 54}{space 4} .5221476{col 67}{space 3} .8896911
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}W_x          {txt}{c |}
+{space 10}x1 {c |}{col 14}{res}{space 2} .3464024{col 26}{space 2} .1277675{col 37}{space 1}    2.71{col 46}{space 3}0.007{col 54}{space 4} .0952031{col 67}{space 3} .5976017
+{txt}{space 10}x2 {c |}{col 14}{res}{space 2} .3280795{col 26}{space 2} .0870187{col 37}{space 1}    3.77{col 46}{space 3}0.000{col 54}{space 4} .1569951{col 67}{space 3} .4991639
+{txt}{space 10}x3 {c |}{col 14}{res}{space 2} .3615469{col 26}{space 2} .0926147{col 37}{space 1}    3.90{col 46}{space 3}0.000{col 54}{space 4} .1794604{col 67}{space 3} .5436334
+{txt}{space 10}x4 {c |}{col 14}{res}{space 2} .0500988{col 26}{space 2} .1476019{col 37}{space 1}    0.34{col 46}{space 3}0.734{col 54}{space 4}-.2400962{col 67}{space 3} .3402939
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}X            {txt}{c |}
+{space 10}x1 {c |}{col 14}{res}{space 2} .3782985{col 26}{space 2} .0560235{col 37}{space 1}    6.75{col 46}{space 3}0.000{col 54}{space 4} .2681526{col 67}{space 3} .4884443
+{txt}{space 10}x2 {c |}{col 14}{res}{space 2} .3287283{col 26}{space 2} .0426851{col 37}{space 1}    7.70{col 46}{space 3}0.000{col 54}{space 4} .2448066{col 67}{space 3} .4126499
+{txt}{space 10}x3 {c |}{col 14}{res}{space 2} .3442047{col 26}{space 2} .0483468{col 37}{space 1}    7.12{col 46}{space 3}0.000{col 54}{space 4} .2491518{col 67}{space 3} .4392576
+{txt}{space 10}x4 {c |}{col 14}{res}{space 2} .0895948{col 26}{space 2} .0745045{col 37}{space 1}    1.20{col 46}{space 3}0.230{col 54}{space 4}-.0568859{col 67}{space 3} .2360756
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 1.035534{col 26}{space 2} .3189017{col 37}{space 1}    3.25{col 46}{space 3}0.001{col 54}{space 4} .4085523{col 67}{space 3} 1.662515
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{com}. 
+. *-- netivreg: Endogenous (G3SLS) second
+. netivreg g3sls y_endo x1 x2 x3 x4 (edges = edges0), second
+
+
+2SLS Regression{txt}{col 55}Number of obs = {res}     400
+{txt}{col 55}Wald chi2({res}10{txt})  = {res}  839.20
+{txt}{col 55}Prob > chi2   = {res}  0.0000
+{txt}{col 55}R-squared     = {res}  0.8095
+{txt}{col 55}Root MSE      = {res}   1.224
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}      y_endo{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}W_y          {txt}{c |}
+{space 6}y_endo {c |}{col 14}{res}{space 2} .6568384{col 26}{space 2} .1030623{col 37}{space 1}    6.37{col 46}{space 3}0.000{col 54}{space 4} .4542113{col 67}{space 3} .8594655
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}W_x          {txt}{c |}
+{space 10}x1 {c |}{col 14}{res}{space 2} .3798965{col 26}{space 2} .1172551{col 37}{space 1}    3.24{col 46}{space 3}0.001{col 54}{space 4} .1493653{col 67}{space 3} .6104278
+{txt}{space 10}x2 {c |}{col 14}{res}{space 2} .3556006{col 26}{space 2} .0846906{col 37}{space 1}    4.20{col 46}{space 3}0.000{col 54}{space 4} .1890934{col 67}{space 3} .5221079
+{txt}{space 10}x3 {c |}{col 14}{res}{space 2} .3883685{col 26}{space 2} .0915501{col 37}{space 1}    4.24{col 46}{space 3}0.000{col 54}{space 4}  .208375{col 67}{space 3}  .568362
+{txt}{space 10}x4 {c |}{col 14}{res}{space 2} .0558494{col 26}{space 2} .1324023{col 37}{space 1}    0.42{col 46}{space 3}0.673{col 54}{space 4}-.2044623{col 67}{space 3}  .316161
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}X            {txt}{c |}
+{space 10}x1 {c |}{col 14}{res}{space 2}  .386902{col 26}{space 2} .0569697{col 37}{space 1}    6.79{col 46}{space 3}0.000{col 54}{space 4} .2748958{col 67}{space 3} .4989081
+{txt}{space 10}x2 {c |}{col 14}{res}{space 2} .3387842{col 26}{space 2} .0433598{col 37}{space 1}    7.81{col 46}{space 3}0.000{col 54}{space 4} .2535361{col 67}{space 3} .4240324
+{txt}{space 10}x3 {c |}{col 14}{res}{space 2}   .35358{col 26}{space 2} .0498306{col 37}{space 1}    7.10{col 46}{space 3}0.000{col 54}{space 4} .2556099{col 67}{space 3} .4515501
+{txt}{space 10}x4 {c |}{col 14}{res}{space 2} .0933147{col 26}{space 2} .0753217{col 37}{space 1}    1.24{col 46}{space 3}0.216{col 54}{space 4}-.0547726{col 67}{space 3} .2414021
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 1.194332{col 26}{space 2} .3562142{col 37}{space 1}    3.35{col 46}{space 3}0.001{col 54}{space 4} .4939918{col 67}{space 3} 1.894673
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+
+Network IV (G3SLS) Regression{col 55}Number of obs = {res}     400
+{txt}{col 55}Wald chi2({res}10{txt})  = {res}  822.26
+{txt}{col 55}Prob > chi2   = {res}  0.0000
+{txt}{col 55}R-squared     = {res}  0.8176
+{txt}{col 55}Root MSE      = {res}   1.194
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}      y_endo{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}W_y          {txt}{c |}
+{space 6}y_endo {c |}{col 14}{res}{space 2} .7059194{col 26}{space 2} .0934719{col 37}{space 1}    7.55{col 46}{space 3}0.000{col 54}{space 4} .5221476{col 67}{space 3} .8896911
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}W_x          {txt}{c |}
+{space 10}x1 {c |}{col 14}{res}{space 2} .3464024{col 26}{space 2} .1277675{col 37}{space 1}    2.71{col 46}{space 3}0.007{col 54}{space 4} .0952031{col 67}{space 3} .5976017
+{txt}{space 10}x2 {c |}{col 14}{res}{space 2} .3280795{col 26}{space 2} .0870187{col 37}{space 1}    3.77{col 46}{space 3}0.000{col 54}{space 4} .1569951{col 67}{space 3} .4991639
+{txt}{space 10}x3 {c |}{col 14}{res}{space 2} .3615469{col 26}{space 2} .0926147{col 37}{space 1}    3.90{col 46}{space 3}0.000{col 54}{space 4} .1794604{col 67}{space 3} .5436334
+{txt}{space 10}x4 {c |}{col 14}{res}{space 2} .0500988{col 26}{space 2} .1476019{col 37}{space 1}    0.34{col 46}{space 3}0.734{col 54}{space 4}-.2400962{col 67}{space 3} .3402939
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}X            {txt}{c |}
+{space 10}x1 {c |}{col 14}{res}{space 2} .3782985{col 26}{space 2} .0560235{col 37}{space 1}    6.75{col 46}{space 3}0.000{col 54}{space 4} .2681526{col 67}{space 3} .4884443
+{txt}{space 10}x2 {c |}{col 14}{res}{space 2} .3287283{col 26}{space 2} .0426851{col 37}{space 1}    7.70{col 46}{space 3}0.000{col 54}{space 4} .2448066{col 67}{space 3} .4126499
+{txt}{space 10}x3 {c |}{col 14}{res}{space 2} .3442047{col 26}{space 2} .0483468{col 37}{space 1}    7.12{col 46}{space 3}0.000{col 54}{space 4} .2491518{col 67}{space 3} .4392576
+{txt}{space 10}x4 {c |}{col 14}{res}{space 2} .0895948{col 26}{space 2} .0745045{col 37}{space 1}    1.20{col 46}{space 3}0.230{col 54}{space 4}-.0568859{col 67}{space 3} .2360756
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 1.035534{col 26}{space 2} .3189017{col 37}{space 1}    3.25{col 46}{space 3}0.001{col 54}{space 4} .4085523{col 67}{space 3} 1.662515
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{com}. 
+. *-- netivreg: Endogenous (G3SLS) with W = W
+. netivreg g3sls y_endo x1 x2 x3 x4 (edges = edges)
+
+Network IV (G3SLS) Regression{txt}{col 55}Number of obs = {res}     400
+{txt}{col 55}Wald chi2({res}10{txt})  = {res} 1797.04
+{txt}{col 55}Prob > chi2   = {res}  0.0000
+{txt}{col 55}R-squared     = {res}  0.8379
+{txt}{col 55}Root MSE      = {res}   1.104
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}      y_endo{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}W_y          {txt}{c |}
+{space 6}y_endo {c |}{col 14}{res}{space 2} .9775033{col 26}{space 2} .0571161{col 37}{space 1}   17.11{col 46}{space 3}0.000{col 54}{space 4} .8652093{col 67}{space 3} 1.089797
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}W_x          {txt}{c |}
+{space 10}x1 {c |}{col 14}{res}{space 2} .1499146{col 26}{space 2} .0678751{col 37}{space 1}    2.21{col 46}{space 3}0.028{col 54}{space 4} .0164676{col 67}{space 3} .2833615
+{txt}{space 10}x2 {c |}{col 14}{res}{space 2} .1307811{col 26}{space 2}  .058853{col 37}{space 1}    2.22{col 46}{space 3}0.027{col 54}{space 4} .0150721{col 67}{space 3}   .24649
+{txt}{space 10}x3 {c |}{col 14}{res}{space 2}  .247199{col 26}{space 2} .0626421{col 37}{space 1}    3.95{col 46}{space 3}0.000{col 54}{space 4} .1240406{col 67}{space 3} .3703573
+{txt}{space 10}x4 {c |}{col 14}{res}{space 2}  .067066{col 26}{space 2} .0943664{col 37}{space 1}    0.71{col 46}{space 3}0.478{col 54}{space 4}-.1184645{col 67}{space 3} .2525964
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}X            {txt}{c |}
+{space 10}x1 {c |}{col 14}{res}{space 2} .3444555{col 26}{space 2} .0350054{col 37}{space 1}    9.84{col 46}{space 3}0.000{col 54}{space 4} .2756326{col 67}{space 3} .4132784
+{txt}{space 10}x2 {c |}{col 14}{res}{space 2} .3254792{col 26}{space 2} .0347623{col 37}{space 1}    9.36{col 46}{space 3}0.000{col 54}{space 4} .2571344{col 67}{space 3} .3938241
+{txt}{space 10}x3 {c |}{col 14}{res}{space 2} .2759635{col 26}{space 2} .0316605{col 37}{space 1}    8.72{col 46}{space 3}0.000{col 54}{space 4} .2137169{col 67}{space 3}   .33821
+{txt}{space 10}x4 {c |}{col 14}{res}{space 2} .0595883{col 26}{space 2} .0571877{col 37}{space 1}    1.04{col 46}{space 3}0.298{col 54}{space 4}-.0528464{col 67}{space 3} .1720231
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .1586211{col 26}{space 2} .2008155{col 37}{space 1}    0.79{col 46}{space 3}0.430{col 54}{space 4}-.2361952{col 67}{space 3} .5534375
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{com}. 
+. 
+. **# ARTICLES DATA
+. 
+. *-- Data description
+. use data/articles.dta
+{txt}(Data on articles published in the aer, eca, jpe, & qje between 2000-2002)
+
+{com}. describe
+
+{txt}Contains data from {res}data/articles.dta
+{txt} Observations:{res}           729                  Data on articles published in the aer, eca, jpe, & qje between 2000-2002
+{txt}    Variables:{res}            12                  12 Sep 2020 14:09
+{txt}{hline}
+Variable      Storage   Display    Value
+    name         type    format    label      Variable label
+{hline}
+{p 0 48}{res}{bind:id             }{txt}{bind: int     }{bind:%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}Article unique identifier{p_end}
+{p 0 48}{bind:lcitations     }{txt}{bind: float   }{bind:%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}Log of total citations 8 years post publication{p_end}
+{p 0 48}{bind:editor         }{txt}{bind: int     }{bind:%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}1 if at least one of the article's authors was an editor of a T4 journal{p_end}
+{p 0 48}{bind:diff_gender    }{txt}{bind: int     }{bind:%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}1 if article's co-authors are of different gender{p_end}
+{p 0 48}{bind:isolated       }{txt}{bind: int     }{bind:%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}1 if an article does not share a co-authorship relationship with others{p_end}
+{p 0 48}{bind:n_pages        }{txt}{bind: byte    }{bind:%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Article's number of pages{p_end}
+{p 0 48}{bind:n_authors      }{txt}{bind: int     }{bind:%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Article's number of authors{p_end}
+{p 0 48}{bind:n_references   }{txt}{bind: int     }{bind:%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Article's number of bibliographic references{p_end}
+{p 0 48}{bind:journal        }{txt}{bind: int     }{bind:%9.0g     }{space 1}{txt}journallab{p_end}
+{p 0 48}{space 44}{bind:  }{res}{res}Journal=aer,eca,jpe,qje{p_end}
+{p 0 48}{bind:year           }{txt}{bind: int     }{bind:%9.0g     }{space 1}{bind:yearlab  }{bind:  }{res}{res}Year=2000,2001,2002{p_end}
+{p 0 48}{bind:c_alumni       }{txt}{bind: int     }{bind:%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}Alumni network components unique identifiers{p_end}
+{p 0 48}{bind:c_coauthor     }{txt}{bind: int     }{bind:%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Co-author network components unique identifiers{p_end}
+{txt}{hline}
+Sorted by: {res}year  journal  id
+{txt}
+{com}. 
+. *-- Summary Statistics I
+. gen citations = exp(lcitations)
+{txt}
+{com}. tabulate journal year, summarize(citations)
+
+          {txt}Means, Standard Deviations and Frequencies of citations
+
+Journal=ae {c |}
+r,eca,jpe, {c |}      Year=2000,2001,2002
+       qje {c |}      2000       2001       2002 {c |}     Total
+{hline 11}{c +}{hline 33}{c +}{hline 10}
+       aer {c |}{res} 52.417721  54.931821  48.652174 {txt}{c |}{res} 51.934364
+           {txt}{c |}{res} 73.653308  90.712233  49.893607 {txt}{c |}{res} 72.800192
+           {txt}{c |}{res}        79         88         92 {txt}{c |}{res}       259
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+       eca {c |}{res} 49.627451  43.328125  37.177779 {txt}{c |}{res} 42.195122
+           {txt}{c |}{res} 52.045351  51.688336  43.565161 {txt}{c |}{res} 48.397466
+           {txt}{c |}{res}        51         64         90 {txt}{c |}{res}       205
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+       jpe {c |}{res} 34.530612  32.863637  46.666667 {txt}{c |}{res} 38.141844
+           {txt}{c |}{res} 26.257619  30.229811  35.717172 {txt}{c |}{res} 31.362075
+           {txt}{c |}{res}        49         44         48 {txt}{c |}{res}       141
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+       qje {c |}{res} 59.380952  72.285714    102.475 {txt}{c |}{res} 77.653226
+           {txt}{c |}{res}  74.70297  47.771446  100.33303 {txt}{c |}{res} 78.338854
+           {txt}{c |}{res}        42         42         40 {txt}{c |}{res}       124
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+     Total {c |}{res} 49.131221  50.794119  52.448149 {txt}{c |}{res} 50.902607
+           {txt}{c |}{res} 61.651186  66.741361  60.112435 {txt}{c |}{res} 62.735929
+           {txt}{c |}{res}       221        238        270 {txt}{c |}{res}       729
+{txt}
+{com}. 
+. *-- Summary Statistics II
+. summarize editor diff_gender isolated n_pages n_authors n_references
+
+{txt}    Variable {c |}        Obs        Mean    Std. dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 6}editor {c |}{res}        729    .0452675     .208033          0          1
+{txt}{space 1}diff_gender {c |}{res}        729    .1303155    .3368814          0          1
+{txt}{space 4}isolated {c |}{res}        729    .5281207    .4995513          0          1
+{txt}{space 5}n_pages {c |}{res}        729    25.15775    11.53631          3         76
+{txt}{space 3}n_authors {c |}{res}        729    1.888889    .7486251          1          5
+{txt}{hline 13}{c +}{hline 57}
+n_references {c |}{res}        729    31.40329    17.84755          0        177
+{txt}
+{com}. 
+. frame reset
+{txt}
+{com}. 
+. *-- Frame edges & edges0
+. frame create edges
+{txt}
+{com}. frame edges: use data/edges.dta
+{txt}(Co-authorship network among articles published in the aer, eca, jpe, & qje betwe)
+
+{com}. frame edges: list in 1/5, table 
+{txt}
+     {c TLC}{hline 8}{c -}{hline 8}{c TRC}
+     {c |} {res}source   target {txt}{c |}
+     {c LT}{hline 8}{c -}{hline 8}{c RT}
+  1. {c |} {res}     4      472 {txt}{c |}
+  2. {c |} {res}     5      221 {txt}{c |}
+  3. {c |} {res}     5      463 {txt}{c |}
+  4. {c |} {res}     5      478 {txt}{c |}
+  5. {c |} {res}     5      665 {txt}{c |}
+     {c BLC}{hline 8}{c -}{hline 8}{c BRC}
+
+{com}. frame create edges0
+{txt}
+{com}. frame edges0: use data/edges0.dta
+{txt}(Alumni network among articles published in the aer, eca, jpe, & qje between 2000)
+
+{com}. frame edges0: list in 1/5, table
+{txt}
+     {c TLC}{hline 8}{c -}{hline 8}{c TRC}
+     {c |} {res}source   target {txt}{c |}
+     {c LT}{hline 8}{c -}{hline 8}{c RT}
+  1. {c |} {res}     2      482 {txt}{c |}
+  2. {c |} {res}     2      534 {txt}{c |}
+  3. {c |} {res}     4      129 {txt}{c |}
+  4. {c |} {res}     4      136 {txt}{c |}
+  5. {c |} {res}     4      407 {txt}{c |}
+     {c BLC}{hline 8}{c -}{hline 8}{c BRC}
+
+{com}. 
+. use data/articles.dta
+{txt}(Data on articles published in the aer, eca, jpe, & qje between 2000-2002)
+
+{com}. 
+. tabulate journal, g(journal)
+
+{txt}Journal=aer {c |}
+,eca,jpe,qj {c |}
+          e {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+        aer {c |}{res}        259       35.53       35.53
+{txt}        eca {c |}{res}        205       28.12       63.65
+{txt}        jpe {c |}{res}        141       19.34       82.99
+{txt}        qje {c |}{res}        124       17.01      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        729      100.00
+{txt}
+{com}. tabulate year, g(year)
+
+{txt}Year=2000,2 {c |}
+   001,2002 {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+       2000 {c |}{res}        221       30.32       30.32
+{txt}       2001 {c |}{res}        238       32.65       62.96
+{txt}       2002 {c |}{res}        270       37.04      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        729      100.00
+{txt}
+{com}. 
+. *-- Estimation G3SLS
+. netivreg g3sls lcitations editor diff_gender n_pages n_authors n_references isolated journal2-journal4 year2-year3 (edges = edges0), wx(editor diff_gender) cluster(c_coauthor)
+
+Network IV (G3SLS) Regression{txt}{col 55}Number of obs = {res}     729
+{txt}Number of clusters (c_coauthor) = {res}   575{txt}{col 55}Wald chi2({res}15{txt})  = {res}  253.67
+{txt}{col 55}Prob > chi2   = {res}  0.0000
+{txt}{col 55}R-squared     = {res}  0.1312
+{txt}{col 55}Root MSE      = {res}   1.308
+{txt}{ralign 78:(Std. err. adjusted for {res:575} clusters in {res:c_coauthor})}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}  lcitations{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}W_y          {txt}{c |}
+{space 2}lcitations {c |}{col 14}{res}{space 2} .2694309{col 26}{space 2} .1342212{col 37}{space 1}    2.01{col 46}{space 3}0.045{col 54}{space 4} .0059155{col 67}{space 3} .5329462
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}W_x          {txt}{c |}
+{space 6}editor {c |}{col 14}{res}{space 2} 4.309042{col 26}{space 2} 4.700963{col 37}{space 1}    0.92{col 46}{space 3}0.360{col 54}{space 4}-4.920321{col 67}{space 3} 13.53841
+{txt}{space 1}diff_gender {c |}{col 14}{res}{space 2}-2.588718{col 26}{space 2} 2.648238{col 37}{space 1}   -0.98{col 46}{space 3}0.329{col 54}{space 4}-7.787981{col 67}{space 3} 2.610546
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}X            {txt}{c |}
+{space 6}editor {c |}{col 14}{res}{space 2} .2174085{col 26}{space 2} .1042592{col 37}{space 1}    2.09{col 46}{space 3}0.037{col 54}{space 4} .0127173{col 67}{space 3} .4220996
+{txt}{space 1}diff_gender {c |}{col 14}{res}{space 2} .2156686{col 26}{space 2} .1196222{col 37}{space 1}    1.80{col 46}{space 3}0.072{col 54}{space 4}-.0191848{col 67}{space 3}  .450522
+{txt}{space 5}n_pages {c |}{col 14}{res}{space 2} .0288559{col 26}{space 2}  .004115{col 37}{space 1}    7.01{col 46}{space 3}0.000{col 54}{space 4}  .020777{col 67}{space 3} .0369349
+{txt}{space 3}n_authors {c |}{col 14}{res}{space 2} .0551324{col 26}{space 2} .0557331{col 37}{space 1}    0.99{col 46}{space 3}0.323{col 54}{space 4}-.0542879{col 67}{space 3} .1645528
+{txt}n_references {c |}{col 14}{res}{space 2} .0116497{col 26}{space 2} .0023924{col 37}{space 1}    4.87{col 46}{space 3}0.000{col 54}{space 4} .0069526{col 67}{space 3} .0163468
+{txt}{space 4}isolated {c |}{col 14}{res}{space 2}-.2149587{col 26}{space 2} .0830938{col 37}{space 1}   -2.59{col 46}{space 3}0.010{col 54}{space 4}-.3780962{col 67}{space 3}-.0518213
+{txt}{space 4}journal2 {c |}{col 14}{res}{space 2}-.3539591{col 26}{space 2} .1033347{col 37}{space 1}   -3.43{col 46}{space 3}0.001{col 54}{space 4}-.5568353{col 67}{space 3} -.151083
+{txt}{space 4}journal3 {c |}{col 14}{res}{space 2}-.4190145{col 26}{space 2} .1176331{col 37}{space 1}   -3.56{col 46}{space 3}0.000{col 54}{space 4}-.6499627{col 67}{space 3}-.1880662
+{txt}{space 4}journal4 {c |}{col 14}{res}{space 2}-.2051599{col 26}{space 2}  .127077{col 37}{space 1}   -1.61{col 46}{space 3}0.107{col 54}{space 4}-.4546493{col 67}{space 3} .0443294
+{txt}{space 7}year2 {c |}{col 14}{res}{space 2} .0398072{col 26}{space 2} .0961562{col 37}{space 1}    0.41{col 46}{space 3}0.679{col 54}{space 4}-.1489755{col 67}{space 3} .2285899
+{txt}{space 7}year3 {c |}{col 14}{res}{space 2} .1069783{col 26}{space 2} .0949419{col 37}{space 1}    1.13{col 46}{space 3}0.260{col 54}{space 4}-.0794204{col 67}{space 3}  .293377
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 1.974159{col 26}{space 2} .2279187{col 37}{space 1}    8.66{col 46}{space 3}0.000{col 54}{space 4} 1.526688{col 67}{space 3}  2.42163
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{com}. 
+. *-- Estimation GMM
+. netivreg gmm lcitations editor diff_gender n_pages n_authors n_references isolated journal2-journal4 year2-year3 (edges = edges0), wx(editor diff_gender) wz(editor diff_gender n_pages n_authors n_references isolated) maxp(4)
+
+Network IV (GMM) Regression{txt}{col 55}Number of obs = {res}     729
+{txt}{col 55}Wald chi2({res}15{txt})  = {res}  268.30
+{txt}{col 55}Prob > chi2   = {res}  0.0000
+{txt}{col 55}R-squared     = {res}  0.1637
+{txt}{col 55}Root MSE      = {res}    1.08
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}  lcitations{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}W_y          {txt}{c |}
+{space 2}lcitations {c |}{col 14}{res}{space 2} .6824698{col 26}{space 2} .2845921{col 37}{space 1}    2.40{col 46}{space 3}0.017{col 54}{space 4} .1237325{col 67}{space 3} 1.241207
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}W_x          {txt}{c |}
+{space 6}editor {c |}{col 14}{res}{space 2}  .296526{col 26}{space 2} .5227753{col 37}{space 1}    0.57{col 46}{space 3}0.571{col 54}{space 4}-.7298345{col 67}{space 3} 1.322887
+{txt}{space 1}diff_gender {c |}{col 14}{res}{space 2}-2.766341{col 26}{space 2} 1.042483{col 37}{space 1}   -2.65{col 46}{space 3}0.008{col 54}{space 4} -4.81304{col 67}{space 3} -.719642
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}X            {txt}{c |}
+{space 6}editor {c |}{col 14}{res}{space 2}-.2539077{col 26}{space 2} .2636978{col 37}{space 1}   -0.96{col 46}{space 3}0.336{col 54}{space 4}-.7716236{col 67}{space 3} .2638082
+{txt}{space 1}diff_gender {c |}{col 14}{res}{space 2}  .559131{col 26}{space 2} .1486833{col 37}{space 1}    3.76{col 46}{space 3}0.000{col 54}{space 4} .2672223{col 67}{space 3} .8510397
+{txt}{space 5}n_pages {c |}{col 14}{res}{space 2}  .029408{col 26}{space 2} .0047013{col 37}{space 1}    6.26{col 46}{space 3}0.000{col 54}{space 4} .0201779{col 67}{space 3}  .038638
+{txt}{space 3}n_authors {c |}{col 14}{res}{space 2} .0119978{col 26}{space 2} .0541688{col 37}{space 1}    0.22{col 46}{space 3}0.825{col 54}{space 4}-.0943514{col 67}{space 3}  .118347
+{txt}n_references {c |}{col 14}{res}{space 2} .0071013{col 26}{space 2} .0027243{col 37}{space 1}    2.61{col 46}{space 3}0.009{col 54}{space 4} .0017528{col 67}{space 3} .0124499
+{txt}{space 4}isolated {c |}{col 14}{res}{space 2} 1.745843{col 26}{space 2} 1.026178{col 37}{space 1}    1.70{col 46}{space 3}0.089{col 54}{space 4}-.2688442{col 67}{space 3} 3.760531
+{txt}{space 4}journal2 {c |}{col 14}{res}{space 2}-.2656251{col 26}{space 2}  .107219{col 37}{space 1}   -2.48{col 46}{space 3}0.013{col 54}{space 4}-.4761273{col 67}{space 3}-.0551229
+{txt}{space 4}journal3 {c |}{col 14}{res}{space 2}-.2740145{col 26}{space 2} .1290085{col 37}{space 1}   -2.12{col 46}{space 3}0.034{col 54}{space 4}-.5272958{col 67}{space 3}-.0207332
+{txt}{space 4}journal4 {c |}{col 14}{res}{space 2}-.2870047{col 26}{space 2} .1410652{col 37}{space 1}   -2.03{col 46}{space 3}0.042{col 54}{space 4}-.5639569{col 67}{space 3}-.0100524
+{txt}{space 7}year2 {c |}{col 14}{res}{space 2} .2030421{col 26}{space 2} .1054519{col 37}{space 1}    1.93{col 46}{space 3}0.055{col 54}{space 4}-.0039909{col 67}{space 3}  .410075
+{txt}{space 7}year3 {c |}{col 14}{res}{space 2} .1653049{col 26}{space 2} .0907393{col 37}{space 1}    1.82{col 46}{space 3}0.069{col 54}{space 4}-.0128429{col 67}{space 3} .3434527
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .4873031{col 26}{space 2} .9724358{col 37}{space 1}    0.50{col 46}{space 3}0.616{col 54}{space 4}-1.421872{col 67}{space 3} 2.396479
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{com}. 
+. log close _all
+      {txt}name:  {res}netivreg output log
+       {txt}log:  {res}C:\Users\leona\OneDrive\1_WP\Net_ivreg\netivreg\netivregOUT_test.smcl
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res} 8 Oct 2024, 12:06:03
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}
