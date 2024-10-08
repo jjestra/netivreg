@@ -131,9 +131,62 @@ network {it:W}.
 {marker references}{...}
 {title:References}
 
-{phang}Estrada et al. 2020. netivreg: Estimation of Peer Effects in
-Endogenous Social Networks.
- {it:Stata Journal} {browse "http://www.stata-journal.com/article.html?article=st0173":9: 439-453}.{p_end}
+
+{phang}Anaconda Software Distribution. 2020. Anaconda Documentation. {browse "https://docs.anaconda.com/":https://docs.anaconda.com/}.{p_end}
+
+{phang}Auerbach, E. 2022. Identification and estimation of a partially linear regression model using network data. {it:Econometrica} 90(1): 347–365.{p_end}
+
+{phang}Bramoullé, Y., H. Djebbari, and B. Fortin. 2009. Identification of Peer Effects through Social Networks. {it:Journal of Econometrics} 150(1): 41–55.{p_end}
+
+{phang}Cerulli, G. 2017. Identification and Estimation of Treatment Effects in the Presence of (Correlated) Neighborhood Interactions: Model and Stata Implementation via Ntreatreg. {it:The Stata Journal} 17(4): 803–833.{p_end}
+
+{phang}Chan, T. J., J. Estrada, K. P. Huynh, D. T. Jacho-Chávez, C. T. Lam, and L. Sánchez-Aragón. In press. Estimating Social Effects with Randomized and Observational Network Data. {it:Journal of Econometric Methods}.{p_end}
+
+{phang}De Paula, A., S. Richards-Shubik, and E. Tamer. 2018. Identifying preferences in networks with bounded degree. {it:Econometrica} 86(1): 263–288.{p_end}
+
+{phang}Erdös, P., and A. Rényi. 1959. On Random Graphs. {it:Publicationes Mathematicae (Debrecen)} 6: 290–297.{p_end}
+
+{phang}Estrada, J. 2022. Causal Inference in Multilayered Networks. PhD thesis, Emory University. {browse "https://etd.library.emory.edu/concern/etds/3r074w158":https://etd.library.emory.edu/concern/etds/3r074w158}.{p_end}
+
+{phang}Goldsmith-Pinkham, P., and G. W. Imbens. 2013. Social Networks and the Identification of Peer Effects. {it:Journal of Business and Economic Statistics} 31(3): 253–264.{p_end}
+
+{phang}Graham, B. S. 2017. An Econometric Model of Network Formation With Degree Heterogeneity. {it:Econometrica} 85(4): 1033–1063.{p_end}
+
+{phang}Graham, B. S., and A. Pelican. 2020. Testing for externalities in network formation using simulation. In {it:The Econometric Analysis of Network Data}, ed. B. Graham and Aureo de Paula, 63–82. Academic Press.{p_end}
+
+{phang}Hagberg, A., P. Swart, and D. S. Chult. 2008. Exploring Network Structure, Dynamics, and Function using NetworkX. Technical report, Los Alamos National Lab.(LANL), Los Alamos, NM (United States).{p_end}
+
+{phang}Ho, A. T. Y., K. P. Huynh, D. T. Jacho-Chávez, and D. Rojas. 2021. Data Science in Stata 16: Frames, Lasso, and Python Integration. {it:Journal of Statistical Software} 98(1): 1–9.{p_end}
+
+{phang}Jackson, M. O., B. W. Rogers, and Y. Zenou. 2017. The Economic Consequences of Social-Network Structure. {it
+of Economic Literature} 55(1): 49–95.{p_end}
+
+{phang}Johnsson, I., and H. R. Moon. 2021. Estimation of Peer Effects in Endogenous Social Networks: Control Function Approach. {it
+Review of Economics and Statistics} 103(2): 328–345.{p_end}
+
+{phang}Kojevnikov, D., V. Marmer, and K. Song. 2021. Limit theorems for network dependent random variables. {it
+of Econometrics} 222(2): 882–908.{p_end}
+
+{phang}Manski, C. F. 1993. Identification of Endogenous Social Effects: The Reflection Problem. {it
+of Economic Studies} 60(3): 531–542.{p_end}
+
+{phang}McKinney, W., et al. 2010. Data Structures for Statistical Computing in Python. In {it
+of the 9th Python in Science Conference}. Vol. 445, 51–56. Austin, TX.{p_end}
+
+{phang}Oliphant, T. E. 2006. {it
+Guide to NumPy}. Vol. 1. Trelgol Publishing USA.{p_end}
+
+{phang}Pedregosa, F., G. Varoquaux, A. Gramfort, V. Michel, B. Thirion, O. Grisel, M. Blondel, P. Prettenhofer, R. Weiss, V. Dubourg, et al. 2011. Scikit-learn: Machine Learning in Python. {it
+of Machine Learning Research} 12(Oct): 2825–2830.{p_end}
+
+{phang}Qu, X., and L. F. Lee. 2015. Estimating a Spatial Autoregressive Model with an Endogenous Spatial Weight Matrix. {it
+of Econometrics} 184(2): 209–232.{p_end}
+
+{phang}Van Rossum, G., and F. L. Drake. 2009. {it
+3 Reference Manual}. Scotts Valley, CA: CreateSpace.{p_end}
+
+{phang}Virtanen, P., R. Gommers, T. E. Oliphant, M. Haberland, T. Reddy, D. Cournapeau, E. Burovski, P. Peterson, W. Weckesser, J. Bright, S. J. van der Walt, M. Brett, J. Wilson, K. Jarrod Millman, N. Mayorov, A. R. J. Nelson, E. Jones, R. Kern, E. Larson, C. Carey, I. Polat, Y. Feng, E. W. Moore, J. VanderPlas, D. Laxalde, J. Perktold, R. Cimrman, I. Henriksen, E. A. Quintero, C. R. Harris, A. M. Archibald, A. H. Ribeiro, F. Pedregosa, P. van Mulbregt, and Contributors. 2020. SciPy 1.0: Fundamental Algorithms for Scientific Computing in Python. {it
+Methods}.{p_end}
 
 
 {marker authors}{...}

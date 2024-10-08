@@ -1,13 +1,11 @@
 {smcl}
 {com}{sf}{ul off}{txt}{.-}
       name:  {res}netivreg output log
-       {txt}log:  {res}/Users/pablo/Documents/GitHub/netivreg/netivregOUT.smcl
+       {txt}log:  {res}C:\Users\leona\OneDrive\1_WP\Net_ivreg\netivreg\netivregOUT.smcl
   {txt}log type:  {res}smcl
- {txt}opened on:  {res} 8 Oct 2024, 09:54:46
+ {txt}opened on:  {res} 8 Oct 2024, 09:53:09
 {txt}
 {com}. 
-. **# SIMULATED DATA
-. 
 . *-- Load Nodes Simulated Data
 . use data/data_sim.dta, clear
 {txt}
@@ -378,35 +376,25 @@ Network IV (G3SLS) Regression{txt}{col 55}Number of obs = {res}     400
 {com}. describe
 
 {txt}Contains data from {res}data/articles.dta
-{txt} Observations:{res}           729                  Data on
-                                                articles
-                                                publishe
-                                                d in the
-                                                aer,
-                                                eca,
-                                                jpe, &
-                                                qje
-                                                between
-                                                2000-200
-                                                2
+{txt} Observations:{res}           729                  Data on articles published in the aer, eca, jpe, & qje between 2000-2002
 {txt}    Variables:{res}            12                  12 Sep 2020 14:09
 {txt}{hline}
 Variable      Storage   Display    Value
     name         type    format    label      Variable label
 {hline}
-{p 0 48}{res}{bind:id             }{txt}{bind: int     }{bind:{txt}%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}Article unique identifier{p_end}
-{p 0 48}{bind:lcitations     }{txt}{bind: float   }{bind:{txt}%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}Log of total citations 8 years post publication{p_end}
-{p 0 48}{bind:editor         }{txt}{bind: int     }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}1 if at least one of the article's authors was an editor of a T4 journal{p_end}
-{p 0 48}{bind:diff_gender    }{txt}{bind: int     }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}1 if article's co-authors are of different gender{p_end}
-{p 0 48}{bind:isolated       }{txt}{bind: int     }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}1 if an article does not share a co-authorship relationship with others{p_end}
-{p 0 48}{bind:n_pages        }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Article's number of pages{p_end}
-{p 0 48}{bind:n_authors      }{txt}{bind: int     }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Article's number of authors{p_end}
-{p 0 48}{bind:n_references   }{txt}{bind: int     }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Article's number of bibliographic references{p_end}
-{p 0 48}{bind:journal        }{txt}{bind: int     }{bind:{txt}%9.0g     }{space 1}{txt}journallab{p_end}
+{p 0 48}{res}{bind:id             }{txt}{bind: int     }{bind:%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}Article unique identifier{p_end}
+{p 0 48}{bind:lcitations     }{txt}{bind: float   }{bind:%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}Log of total citations 8 years post publication{p_end}
+{p 0 48}{bind:editor         }{txt}{bind: int     }{bind:%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}1 if at least one of the article's authors was an editor of a T4 journal{p_end}
+{p 0 48}{bind:diff_gender    }{txt}{bind: int     }{bind:%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}1 if article's co-authors are of different gender{p_end}
+{p 0 48}{bind:isolated       }{txt}{bind: int     }{bind:%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}1 if an article does not share a co-authorship relationship with others{p_end}
+{p 0 48}{bind:n_pages        }{txt}{bind: byte    }{bind:%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Article's number of pages{p_end}
+{p 0 48}{bind:n_authors      }{txt}{bind: int     }{bind:%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Article's number of authors{p_end}
+{p 0 48}{bind:n_references   }{txt}{bind: int     }{bind:%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Article's number of bibliographic references{p_end}
+{p 0 48}{bind:journal        }{txt}{bind: int     }{bind:%9.0g     }{space 1}{txt}journallab{p_end}
 {p 0 48}{space 44}{bind:  }{res}{res}Journal=aer,eca,jpe,qje{p_end}
-{p 0 48}{bind:year           }{txt}{bind: int     }{bind:{txt}%9.0g     }{space 1}{bind:yearlab  }{bind:  }{res}{res}Year=2000,2001,2002{p_end}
-{p 0 48}{bind:c_alumni       }{txt}{bind: int     }{bind:{txt}%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}Alumni network components unique identifiers{p_end}
-{p 0 48}{bind:c_coauthor     }{txt}{bind: int     }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Co-author network components unique identifiers{p_end}
+{p 0 48}{bind:year           }{txt}{bind: int     }{bind:%9.0g     }{space 1}{bind:yearlab  }{bind:  }{res}{res}Year=2000,2001,2002{p_end}
+{p 0 48}{bind:c_alumni       }{txt}{bind: int     }{bind:%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}Alumni network components unique identifiers{p_end}
+{p 0 48}{bind:c_coauthor     }{txt}{bind: int     }{bind:%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Co-author network components unique identifiers{p_end}
 {txt}{hline}
 Sorted by: {res}year  journal  id
 {txt}
@@ -594,28 +582,11 @@ Network IV (GMM) Regression{txt}{col 55}Number of obs = {res}     729
 {txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
 
 {com}. 
-. log close
-{err}no log file open
-{txt}{search r(606), local:r(606);}
-
-end of do-file
-
-{search r(606), local:r(606);}
-
-{com}. do "/Users/pablo/Documents/GitHub/netivreg/output.do"
-{txt}
-{com}. clear all
-{res}{txt}
-{com}. set more off, permanently
-{txt}({cmd:set more} preference recorded)
-
-{com}. 
-. log using "netivregOUT", replace name("netivreg output log")
-{err}log file already open
-{txt}{search r(604), local:r(604);}
-
-end of do-file
-
-{search r(604), local:r(604);}
-
-{com}. 
+. log close _all
+      {txt}name:  {res}netivreg output log
+       {txt}log:  {res}C:\Users\leona\OneDrive\1_WP\Net_ivreg\netivreg\netivregOUT.smcl
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res} 8 Oct 2024, 09:53:18
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}
