@@ -67,7 +67,7 @@ _ESPOL University_, Guayaquil, Guayas, Ecuador
 
 ## Additional resources
 
-For Windows users, please the following instructional video [here](https://www.youtube.com/watch?v=u_zt9QbGTTA&feature=youtu.be).
+For Windows users, please refer to the following instructional video [here](https://www.youtube.com/watch?v=u_zt9QbGTTA&feature=youtu.be).
 
 
 
