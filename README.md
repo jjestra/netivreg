@@ -1,7 +1,7 @@
 ## Code for the article "```netivreg```: _Estimation of Peer Effects in Endogenous Social Networks_"
 
 The command ```netivreg```  implements the Generalized Three-Stage Least Squares (G3SLS) estimator developed in
-```Estrada (2022)``` and the Generalized Method of Moments (GMM) estimator in ```Chan et al. (inpress)``` for the endogenous linear-in-means model. 
+```Estrada (2022)``` and the Generalized Method of Moments (GMM) estimator in ```Chan et al. (in press)``` for the endogenous linear-in-means model. 
 The two procedures utilize full observability of a two-layered multiplex network data structure using Stata's new multiframes capabilities 
 and Python integration (version 16 and above). Applications of the command include simulated data and three years' worth of 
 data on peer-reviewed articles published in top general interest journals in Economics.
@@ -15,7 +15,7 @@ _Emory University_, Atlanta, GA, USA
 [**Kim Huynh**](https://kphuynh.pages.iu.edu/)  
 _Bank of Canada_, Ottawa, Ontario, Canada  
 
-[**David Jacho-Chavez**](https://www.davidjachochavez.org/)  
+[**David Jacho-Chávez**](https://www.davidjachochavez.org/)  
 Emory University_, Atlanta, GA, USA  
 
 [**Leonardo Sánchez-Aragón**](https://leonardosanchezaragon.netlify.app/)  
