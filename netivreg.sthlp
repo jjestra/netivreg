@@ -198,9 +198,9 @@ Methods}.{p_end}
 {pstd}pablo.estrada@emory.edu{p_end}
 
 {pstd}Juan Estrada{p_end}
-{pstd}Emory University{p_end}
-{pstd}Atlanta, USA{p_end}
-{pstd}jjestra@emory.edu{p_end}
+{pstd}Analysis Group Economic Consulting{p_end}
+{pstd}Washington, DC, USA{p_end}
+{pstd}juan.estrada@analysisgroup.com{p_end}
 
 {pstd}Kim Huynh{p_end}
 {pstd}Bank of Canada{p_end}
@@ -220,5 +220,5 @@ Methods}.{p_end}
 
 {title:Also see}
 
-{p 7 14 2}Help:  {helpb netivreg}, {helpb est},
-{helpb postest}, {helpb regress}{p_end}
+{p 7 14 2}{helpb regress}, {helpb est},
+{helpb postest} {p_end}
