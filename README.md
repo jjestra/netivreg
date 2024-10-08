@@ -18,7 +18,7 @@ _Bank of Canada_, Ottawa, Ontario, Canada
 [**David Jacho-Chavez**](https://www.davidjachochavez.org/)  
 Emory University_, Atlanta, GA, USA  
 
-[**Leonardo Sanchez-Aragon**](https://leonardosanchezaragon.netlify.app/)  
+[**Leonardo Sánchez-Aragón**](https://leonardosanchezaragon.netlify.app/)  
 _ESPOL University_, Guayaquil, Guayas, Ecuador  
 
 ## Requirements
