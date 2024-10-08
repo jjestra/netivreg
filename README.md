@@ -54,6 +54,18 @@ _ESPOL University_, Guayaquil, Guayas, Ecuador
    conda create -n netivreg_env python=3.9 pip networkx=3.2 numpy=1.26 pandas=2.2 scikit-learn=1.5 scipy=1.13
    ```
 
+   This command creates a conda environment named ```netivreg_env``` with Python 3.9 and the necessary packages.
+
+4. **Copy netivreg Files to the Stata Ado Folder:**
+ - Locate the ```netivreg.ado``` and ```netivreg.sthlp``` files from the stata_package folder.
+ - Copy these files to the ```ado/base/n``` folder in your Stata installation directory. This folder is automatically created when Stata is installed.
+
+5 . **Copy Python Files to the Stata ado/base/py Folder:**
+ - Find the folder named ```netivreg``` (this folder contains Python files necessary to run the command).
+ - Copy the entire netivreg folder to the ```ado/base/py``` directory in your Stata installation folder.
+
+
+
 
 The user is strongly encouraged to create a virtual environment with the required Python packages versions. For example, on Windows, the user can open a command prompt and create a conda environment using Anaconda as follows,
 
@@ -65,18 +77,6 @@ Then, to recover the location path of the environment `netivreg_env`, the user c
 
 ```
 conda env list
-```
-
-After creating the environment and obtaining its location, the user has to point Stata to the `netivreg_env` environment by running the following command in Stata,
-
-```
-python set exec <location>\bin\python3.9
-```
-
-where `<location>` could be `C:\Users\user\Anaconda3\envs\netivreg_env`. Alternatively, the user can point to the environment permanently by instead running the following command in Stata,
-
-```
-python set exec <location>\bin\python3.9, permanently
 ```
 
 ## Usage 
