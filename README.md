@@ -64,11 +64,10 @@ _ESPOL University_, Guayaquil, Guayas, Ecuador
  - Find the folder named ```netivreg``` (this folder contains Python files necessary to run the command).
    - ```netivreg``` (folder): contains the Python scripts with the Generalized Three-Stage Least Squares and the Generalized Method of Moments estimators. The files include ```__init__.py```, ```g3sls.py``` and ```gmm.py```. 
  - Copy the entire ```netivreg``` folder to the ```ado/base/py``` directory in your Stata installation folder.
-- 
 
 
-
-Then, to recover the location path of the environment `netivreg_env`, the user can run the following command in the command prompt,
+## Tips
+To recover the location path of the environment `netivreg_env`, the user can run the following command in the command prompt,
 
 ```
 conda env list
@@ -76,21 +75,3 @@ conda env list
 
 ## Usage 
 
-Files list and folders structure:
-
-- data (folder): contains all data required to run the examples in the manuscript. The files include ```articles.dta```, ```data_sim.dta```, ```edges.dta```, ```edges0.dta```, ```W_sim.dta``` and ```W0_sim.dta```.
-
-- 
-The other files in the repository include:
-
-- The do file with the Stata code to run the examples in the manuscript called ```manuscript_output.do```.
-
-- The ado file with the netivreg Stata code called ```netivreg.ado```. 
-
-- The help file called ```netivreg.sthlp```. 
-
-The order of the folders is essential to running the ```manuscript_output.do``` script, so please keep the structure in the code folder. 
-
-After downloading the code, change the global path in the ```manuscript_output.do``` to the local path where you saved locally the code folder.  
-
-Before running the do file, add the ```netivreg.ado``` to your Stata ado folder.
