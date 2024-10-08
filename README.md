@@ -62,16 +62,13 @@ _ESPOL University_, Guayaquil, Guayas, Ecuador
 
 5 . **Copy Python Files to the Stata ado/base/py Folder:**
  - Find the folder named ```netivreg``` (this folder contains Python files necessary to run the command).
- - Copy the entire netivreg folder to the ```ado/base/py``` directory in your Stata installation folder.
+   - ```netivreg``` (folder): contains the Python scripts with the Generalized Three-Stage Least Squares and the Generalized Method of Moments estimators. The files include ```__init__.py```, ```g3sls.py``` and ```gmm.py```. 
+
+ - Copy the entire ```netivreg``` folder to the ```ado/base/py``` directory in your Stata installation folder.
+ - 
 
 
 
-
-The user is strongly encouraged to create a virtual environment with the required Python packages versions. For example, on Windows, the user can open a command prompt and create a conda environment using Anaconda as follows,
-
-```
-conda create -n netivreg_env python=3.9 pip networkx=3.2 numpy=1.26 pandas=2.2 scikit-learn=1.5 scipy=1.13
-```
 
 Then, to recover the location path of the environment `netivreg_env`, the user can run the following command in the command prompt,
 
@@ -85,8 +82,7 @@ Files list and folders structure:
 
 - data (folder): contains all data required to run the examples in the manuscript. The files include ```articles.dta```, ```data_sim.dta```, ```edges.dta```, ```edges0.dta```, ```W_sim.dta``` and ```W0_sim.dta```.
 
-- netivreg (folder): contains the Python scripts with the Generalized Three-Stage Least Squares and the Generalized Method of Moments estimators. The files include ```__init__.py```, ```g3sls.py``` and ```gmm.py```. 
-
+- 
 The other files in the repository include:
 
 - The do file with the Stata code to run the examples in the manuscript called ```manuscript_output.do```.
