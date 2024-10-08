@@ -1,7 +1,7 @@
 clear all
 set more off, permanently
 
-global path `"C:\Users\pestrad\Desktop"'
+global path `"/Users/pablo/Documents/GitHub/netivreg/"'
 
 *-- Load Nodes Simulated Data
 sjlog using `"$path/netivregOUT1"', replace
