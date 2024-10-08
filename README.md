@@ -37,7 +37,7 @@ _ESPOL University_, Guayaquil, Guayas, Ecuador
 ## Step-by-Step Installation Guide for `netivreg`
 
 1. **Install Python via Anaconda:**  
-   Download and install Anaconda, which comes with Python 3.9 or higher. The Anaconda distribution is highly recommended to ensure compatibility with `netivreg`.
+   Download and install [Anaconda](https://www.anaconda.com/download/success), which comes with Python 3.9 or higher. The Anaconda distribution is highly recommended to ensure compatibility with `netivreg`.
 
 2. **Set the Python Version in Stata:**  
    After installing Python, you need to link it to Stata. Open Stata and use the following command to set the Python version:
