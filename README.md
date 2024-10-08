@@ -1,27 +1,25 @@
 ## Code for the article "```netivreg```: _Estimation of Peer Effects in Endogenous Social Networks_"
 
-The command \verb+netivreg+ implements the Generalized Three-Stage Least Squares (G3SLS) estimator developed in
-Estrada (2022) and the Generalized Method of Moments (GMM) estimator in Chan et al. (inpress) for the endogenous linear-in-means model. 
+The command ```netivreg```  implements the Generalized Three-Stage Least Squares (G3SLS) estimator developed in
+```Estrada (2022)``` and the Generalized Method of Moments (GMM) estimator in ```Chan et al. (inpress)``` for the endogenous linear-in-means model. 
 The two procedures utilize full observability of a two-layered multiplex network data structure using Stata's new multiframes capabilities 
 and Python integration (version 16 and above). Applications of the command include simulated data and three years' worth of 
 data on peer-reviewed articles published in top general interest journals in Economics.
 
-The Stata command ```netivreg``` implements the Generalized Three-Stage Least Squares (G3SLS) estimator developed in Estrada et al. (2020, “_On the Identification and Estimation of Endogenous Peer Effects in Multiplex Networks_”) and the Generalized Method of Moments (GMM) estimator in Chan et al. (2022, “_On the Estimation of Social Effects with Observational Network Data and Random Assignment_”)
+[**Pablo Estrada**](https://pabloestrada.io/)  
+_Emory University_, Atlanta, GA, USA  
 
-Author 1 name: [**Pablo Estrada**](https://pabloestrada.io/)  
-Author 1 from: _Emory University_, Atlanta, GA, USA  
+[**Juan Estrada**](https://www.juanestrada.info/)  
+ _Analysis Group Econoic COnsultaing_, Washington, DC, USA  
 
-Author 2 name: [**Juan Estrada**](https://www.juanestrada.info/)  
-Author 2 from: _Emory University_, Atlanta, GA, USA  
+[**Kim Huynh**](https://kphuynh.pages.iu.edu/)  
+_Bank of Canada_, Ottawa, Ontario, Canada  
 
-Author 3 name: [**Kim Huynh**](https://kphuynh.pages.iu.edu/)  
-Author 3 from: _Bank of Canada_, Ottawa, Ontario, Canada  
+[**David Jacho-Chavez**](https://www.davidjachochavez.org/)  
+Emory University_, Atlanta, GA, USA  
 
-Author 4 name: [**David Jacho-Chavez**](https://www.davidjachochavez.org/)  
-Author 4 from: _Emory University_, Atlanta, GA, USA  
-
-Author 5 name: [**Leonardo Sanchez-Aragon**](https://leonardosanchezaragon.netlify.app/)  
-Author 5 from: _ESPOL University_, Guayaquil, Guayas, Ecuador  
+[**Leonardo Sanchez-Aragon**](https://leonardosanchezaragon.netlify.app/)  
+_ESPOL University_, Guayaquil, Guayas, Ecuador  
 
 ## Requirements
 
