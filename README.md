@@ -67,7 +67,9 @@ _ESPOL University_, Guayaquil, Guayas, Ecuador
 
 ## Additional resources
 
-[Tutorial  Youtube](https://www.youtube.com/watch?v=u_zt9QbGTTA&feature=youtu.be)
+For Windows users, please the following instructional video [here](https://www.youtube.com/watch?v=u_zt9QbGTTA&feature=youtu.be).
+
+
 
 ## Tips
 To recover the location path of the environment `netivreg_env`, the user can run the following command in the command prompt,
