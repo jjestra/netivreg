@@ -23,7 +23,7 @@ _ESPOL University_, Guayaquil, Guayas, Ecuador
 
 ## Requirements
 
-[Stata 16.0](https://www.stata.com/) and [Python 3.9](https://www.python.org/) or above are needed as well as the following Python packages,
+[Stata 16.0](https://www.stata.com/) or above, and [Python 3.9](https://www.python.org/) or above are needed as well as the following Python packages,
 
 | Python Package | Version |
 | ----------- | ----------- |
