@@ -3,8 +3,11 @@
 The command ```netivreg```  implements the Generalized Three-Stage Least Squares (G3SLS) estimator developed in
 ```Estrada (2022)``` and the Generalized Method of Moments (GMM) estimator in ```Chan et al. (in press)``` for the endogenous linear-in-means model. 
 The two procedures utilize full observability of a two-layered multiplex network data structure using Stata's new multiframes capabilities 
-and Python integration (version 16 and above). Applications of the command include simulated data and three years' worth of 
-data on peer-reviewed articles published in top general interest journals in Economics.
+and Python integration (version 16 or above). 
+
+For further theoretical details, please refer to:  
+
+Chan, T. J., J. Estrada, K. P. Huynh, D. T. Jacho-Chávez, C. T. Lam, and L. Sánchez-Aragón. *In press*. "Estimating Social Effects with Randomized and Observational Network Data." *Journal of Econometric Methods*.
 
 [**Pablo Estrada**](https://pabloestrada.io/)  
 _Emory University_, Atlanta, GA, USA  
@@ -80,3 +83,5 @@ conda env list
 
 ## Usage 
 
+Applications of the command include simulated data and three years' worth of 
+data on peer-reviewed articles published in top general interest journals in Economics.
