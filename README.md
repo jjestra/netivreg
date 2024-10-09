@@ -48,6 +48,7 @@ _ESPOL University_, Guayaquil, Guayas, Ecuador
    Replace `<location>` with the actual path to your Python installation, typically found within the Anaconda folder.
 
 3. **Create a Python environment for netivreg:**
+   
    To ensure backward compatibility and avoid version conflicts, create a dedicated environment for netivreg with the required Python packages. 
    Open the Anaconda prompt and run the following command:
 
