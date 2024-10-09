@@ -7,20 +7,20 @@ and Python integration (version 16 or above).
 
 Authors: 
 
-[**Pablo Estrada**](https://pabloestrada.io/)  
-_Emory University_, Atlanta, GA, USA  
-
-[**Juan Estrada**](https://www.juanestrada.info/)  
- _Analysis Group Econoic COnsultaing_, Washington, DC, USA  
-
-[**Kim Huynh**](https://kphuynh.pages.iu.edu/)  
-_Bank of Canada_, Ottawa, Ontario, Canada  
-
-[**David Jacho-Chávez**](https://www.davidjachochavez.org/)  
-Emory University_, Atlanta, GA, USA  
-
-[**Leonardo Sánchez-Aragón**](https://leonardosanchezaragon.netlify.app/)  
-_ESPOL University_, Guayaquil, Guayas, Ecuador  
+>[**Pablo Estrada**](https://pabloestrada.io/)  
+>_Emory University_, Atlanta, GA, USA  
+>
+>[**Juan Estrada**](https://www.juanestrada.info/)  
+> _Analysis Group Econoic Consultaing_, Washington, DC, USA  
+>
+>[**Kim Huynh**](https://kphuynh.pages.iu.edu/)  
+>_Bank of Canada_, Ottawa, Ontario, Canada  
+>
+>[**David Jacho-Chávez**](https://www.davidjachochavez.org/)  
+>Emory University_, Atlanta, GA, USA  
+>
+>[**Leonardo Sánchez-Aragón**](https://leonardosanchezaragon.netlify.app/)  
+>_ESPOL University_, Guayaquil, Guayas, Ecuador  
 
 ## Requirements
 
