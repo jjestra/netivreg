@@ -71,8 +71,8 @@ Authors:
 
 5 . **Copy Python Files to the Stata ado/base/py Folder:**
 
-    - Find the folder named ```netivreg``` from the stata_package folder. It contains Python files necessary to run Generalized Three-Stage Least Squares and the Generalized Method of Moments estimators.
-    - This ```netivreg``` (folder) contains: ```__init__.py```, ```g3sls.py``` and ```gmm.py```. 
+    - Locate the folder named ```netivreg``` in the stata_package folder within this repository. It contains Python files necessary to run Generalized Three-Stage Least Squares and the Generalized Method of Moments estimators.
+    - This ```netivreg``` folder contains: ```__init__.py```, ```g3sls.py``` and ```gmm.py```. 
     - Copy the entire ```netivreg``` folder to the ```ado/base/py``` directory in your Stata installation folder.
 
 
