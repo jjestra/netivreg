@@ -5,9 +5,7 @@ The command ```netivreg```  implements the Generalized Three-Stage Least Squares
 The two procedures utilize full observability of a two-layered multiplex network data structure using Stata's new multiframes capabilities 
 and Python integration (version 16 or above). 
 
-For further theoretical details, please refer to:  
-
-Chan, T. J., J. Estrada, K. P. Huynh, D. T. Jacho-Chávez, C. T. Lam, and L. Sánchez-Aragón. *In press*. "Estimating Social Effects with Randomized and Observational Network Data." *Journal of Econometric Methods*.
+Authors: 
 
 [**Pablo Estrada**](https://pabloestrada.io/)  
 _Emory University_, Atlanta, GA, USA  
@@ -42,7 +40,7 @@ _ESPOL University_, Guayaquil, Guayas, Ecuador
 1. **Install Python via Anaconda:**  
    Download and install [Anaconda](https://www.anaconda.com/download/success), which comes with Python 3.9 or higher. The Anaconda distribution is highly recommended to ensure compatibility with `netivreg`.
 
-2. **Set the Python Version in Stata:**  
+2. **Set the Python version in Stata:**  
    After installing Python, you need to link it to Stata. Open Stata and use the following command to set the Python version:
    ```stata
    python set exec <location>\bin\python3.9
