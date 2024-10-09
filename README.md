@@ -75,9 +75,12 @@ Authors:
    - Copy the entire ```netivreg``` folder to the ```ado/base/py``` directory in your local Stata installation folder.
 
 
-## Additional resources
+## How-To Video
 
-For Windows users, please refer to the following instructional video [here](https://www.youtube.com/watch?v=u_zt9QbGTTA&feature=youtu.be).
+For Windows users, please refer to the following instructional video
+
+[![Watch the video](https://img.youtube.com/vi/u_zt9QbGTTA/maxresdefault.jpg)](https://www.youtube.com/watch?v=u_zt9QbGTTA&feature=youtu.be)
+
 
 
 
