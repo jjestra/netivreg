@@ -63,10 +63,10 @@ _ESPOL University_, Guayaquil, Guayas, Ecuador
    This command creates a conda environment named ```netivreg_env``` with Python 3.9 and the necessary packages.
 
 
-4. **Copy netivreg Files to the Stata Ado Folder:**
+4. **Copy `netivreg` files to the Stata ado folder:**
    
- - Locate the ```netivreg.ado``` and ```netivreg.sthlp``` files from the stata_package folder.
- - Copy these files to the ```ado/base/n``` folder in your Stata installation directory. This folder is automatically created when Stata is installed.
+ - Locate the ```netivreg.ado``` and ```netivreg.sthlp``` files in the stata_package folder within this repository.
+ - Copy these files to the ```ado/base/n``` folder in your Stata installation directory. This folder is automatically created during Stata's installation.
 
 
 5 . **Copy Python Files to the Stata ado/base/py Folder:**
