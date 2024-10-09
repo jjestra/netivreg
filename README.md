@@ -45,7 +45,7 @@ _ESPOL University_, Guayaquil, Guayas, Ecuador
    ```stata
    python set exec <location>\bin\python3.9, permanently
     ```
-   Replace ```location``` with the actual path to your Python installation, typically found within the Anaconda folder.
+   Replace ```<location>``` with the actual path to your Python installation, typically found within the Anaconda folder.
 
 3. **Create a Python Environment for netivreg:**
    To ensure backward compatibility and avoid version conflicts, create a dedicated environment for netivreg with the required Python packages. 
