@@ -38,14 +38,18 @@ _ESPOL University_, Guayaquil, Guayas, Ecuador
 ## Step-by-Step Installation Guide for `netivreg`
 
 1. **Install Python via Anaconda:**  
+   
    Download and install [Anaconda](https://www.anaconda.com/download/success), which comes with Python 3.9 or higher. The Anaconda distribution is highly recommended to ensure compatibility with `netivreg`.
 
+
 2. **Set the Python version in Stata:**  
+   
    After installing Python, you need to link it to Stata. Open Stata and use the following command to set the Python version:
    ```stata
    python set exec <location>\bin\python3.9, permanently
     ```
    Replace `<location>` with the actual path to your Python installation, typically found within the Anaconda folder.
+
 
 3. **Create a Python environment for netivreg:**
    
@@ -58,14 +62,19 @@ _ESPOL University_, Guayaquil, Guayas, Ecuador
 
    This command creates a conda environment named ```netivreg_env``` with Python 3.9 and the necessary packages.
 
+
 4. **Copy netivreg Files to the Stata Ado Folder:**
+   
  - Locate the ```netivreg.ado``` and ```netivreg.sthlp``` files from the stata_package folder.
  - Copy these files to the ```ado/base/n``` folder in your Stata installation directory. This folder is automatically created when Stata is installed.
 
+
 5 . **Copy Python Files to the Stata ado/base/py Folder:**
+
  - Find the folder named ```netivreg``` from the stata_package folder. It contains Python files necessary to run Generalized Three-Stage Least Squares and the Generalized Method of Moments estimators.
  - This ```netivreg``` (folder) contains: ```__init__.py```, ```g3sls.py``` and ```gmm.py```. 
  - Copy the entire ```netivreg``` folder to the ```ado/base/py``` directory in your Stata installation folder.
+
 
 ## Additional resources
 
