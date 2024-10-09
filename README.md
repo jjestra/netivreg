@@ -38,7 +38,7 @@ Authors:
 ## Step-by-Step Installation Guide for `netivreg`
 
 1. **Install Python via Anaconda:**  
-<!-- blank line -->   
+
    Download and install [Anaconda](https://www.anaconda.com/download/success), which comes with Python 3.9 or higher. The Anaconda distribution is highly recommended to ensure compatibility with `netivreg`.
 
 
