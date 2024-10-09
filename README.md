@@ -49,7 +49,7 @@ _ESPOL University_, Guayaquil, Guayas, Ecuador
 
 3. **Create a Python environment for netivreg:**
    To ensure backward compatibility and avoid version conflicts, create a dedicated environment for netivreg with the required Python packages. 
-   Open a command prompt and run the following command:
+   Open the Anaconda prompt and run the following command:
 
    ```bash
    conda create -n netivreg_env python=3.9 pip networkx=3.2 numpy=1.26 pandas=2.2 scikit-learn=1.5 scipy=1.13
