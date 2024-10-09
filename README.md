@@ -91,5 +91,6 @@ conda env list
 
 ## Usage 
 
-Applications of the command include simulated data and three years' worth of 
-data on peer-reviewed articles published in top general interest journals in Economics.
+In the output folder within this repository, there is a do-file named `output.do` that replicates the tables from 
+ `netivreg: Estimation of Peer Effects in Endogenous Social Networks` using the datasets found in the `data` folder.
+
