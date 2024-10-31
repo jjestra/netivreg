@@ -42,18 +42,9 @@ Authors:
    Download and install [Anaconda](https://www.anaconda.com/download/success) on your computer, which comes with Python 3.9 or higher. The Anaconda distribution is highly recommended to ensure compatibility with `netivreg`.
 
 
-2. **Set the Python version in Stata:**  
+2. **Create a Python environment for netivreg:**
    
-   After installing Python locally on your computer, you need to link it to your local Stata installation. Open Stata and use the following command to set the Python version:
-   ```stata
-   python set exec <location>\bin\python3.9, permanently
-    ```
-   Replace `<location>` with the actual path to your local Python installation, typically found within the Anaconda folder.
-
-
-3. **Create a Python environment for netivreg:**
-   
-   To ensure backward compatibility and avoid version conflicts, we recommend you create a dedicated environment for `netivreg` with the required Python packages. Do this by first,    openning the Anaconda prompt and run the following command:
+   To ensure backward compatibility and avoid version conflicts, we recommend you create a dedicated environment for `netivreg` with the required Python packages. Do this by first, openning the Anaconda prompt and run the following command:
 
    ```bash
    conda create -n netivreg_env python=3.9 pip networkx=3.2 numpy=1.26 pandas=2.2 scikit-learn=1.5 scipy=1.13
@@ -61,18 +52,34 @@ Authors:
 
    This command creates a conda environment named ```netivreg_env``` with Python 3.9 and the necessary packages with the compatible versions.
 
+3. **Activate the Python environment for netivreg:**
+
+   Run the following command on the Anaconda prompt:
+
+   ```bash
+   conda activate netivreg_env
+   ```
+
+4. **Directing Stata to use the crated Python environment:**  
+   
+   After completing steps 1-3 above, you need to link it to your local Stata installation. Open Stata and use the following command to set the Python version:
+   ```stata
+   python set exec <location>\bin\python3.9, permanently
+    ```
+   Replace `<location>` with the actual path to your local Python installation, typically found within the Anaconda folder.
+
+## <span style="color:red">Manual</span> Installation:
 
 4. **Copy `netivreg` files to the Stata ado folder:**
    
-   - Locate the ```netivreg.ado``` and ```netivreg.sthlp``` files in the stata_package folder within this repository.
-   - Copy these files to the ```ado/base/n``` folder in your local Stata installation directory. This folder is automatically created during Stata's installation.
+   - Locate the ```netivreg.ado``` and ```netivreg.sthlp``` files in the `Files` folder within this repository.
+   - Copy these files to the ```/ado/plus/n``` folder in your local user installation directory. For example, `C:/Users/<usarname>/ado/plus/n` in Windows. This folder is automatically created when you install any user-written Stata package.
 
 
-5. **Copy Python Files to the Stata ado/base/py Folder:**
+5. **Copy Python Files to the Stata ado/plus/py Folder:**
 
-   - Locate the folder named ```netivreg``` in the stata_package folder within this repository. It contains Python files necessary to run Generalized Three-Stage Least Squares and the Generalized Method of Moments estimators.
-   - This ```netivreg``` folder contains: ```__init__.py```, ```g3sls.py``` and ```gmm.py```. 
-   - Copy the entire ```netivreg``` folder to the ```ado/base/py``` directory in your local Stata installation folder.
+   - This the ```__init__.py```, ```g3sls.py``` and ```gmm.py``` files in the `Files` folder within this repository. 
+   - Copy these files to the ```ado/plus/py``` forlder in your local user installation directory. For example, `C:/Users/<usarname>/ado/plus/py` in Windows. If this folder does not exist, you can create it.
 
 
 ## How-To Video
@@ -93,5 +100,5 @@ conda env list
 
 ## Usage 
 
-In the output folder within this repository, there is a do-file named `output.do` that replicates the tables from the manuscript '`netivreg`: _Estimation of Peer Effects in Endogenous Social Networks_' using the datasets found in the `data` folder in this repository.
+In `Files` folder within this repository, there is a do-file named `manuscript_output.do` that replicates the tables from the manuscript '`netivreg`: _Estimation of Peer Effects in Endogenous Social Networks_' using the datasets found in the same `Files` folder in this repository.
 
