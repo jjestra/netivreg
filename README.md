@@ -54,6 +54,8 @@ Authors:
 
    This command creates a conda environment named ```netivreg_env``` with Python 3.9 and the necessary packages with the compatible versions.
 
+   > Note: On Windows, this environment is typically created within the `C:\Users\<username>\anaconda3\envs` folder.  Inside envs, a subfolder named netivreg_env will hold all files for this specific environment.
+
 3. **Activate the Python environment for netivreg:**
 
    Run the following command on the Anaconda prompt:
