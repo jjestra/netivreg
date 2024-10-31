@@ -79,7 +79,7 @@ Authors:
 5. **Copy `netivreg` files to the Stata ado folder:**
    
    - Locate the ```netivreg.ado``` and ```netivreg.sthlp``` files in the `Files` folder within this repository.
-   - Copy these files to the ```/ado/plus/n``` folder in your local user installation directory. For example, `C:/Users/<usarname>/ado/plus/n` in Windows. This folder is automatically created when you install any user-written Stata package.
+   - Copy these files to the ```/ado/plus/n``` folder in your local user installation directory. For example, on Windows, this path  would be  `C:/Users/<usarname>/ado/plus/n`. This folder is automatically created when you install any user-written Stata package.
 
 
 6. **Copy Python Files to the Stata ado/plus/py Folder:**
