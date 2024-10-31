@@ -2,7 +2,7 @@ clear all
 set more off, permanently
 
 
-cd "C:\Users\djachoc\Documents\GitHub\netivreg\stata_package"
+cd "C:\Users\djachoc\Documents\GitHub\netivreg\Files"
 
 
 log using "manuscript_output", text replace

@@ -1,9 +1,9 @@
 --------------------------------------------------------------------------------
       name:  <unnamed>
-       log:  C:\Users\djachoc\Documents\GitHub\netivreg\stata_package\manuscript
-> _output.log
+       log:  C:\Users\djachoc\Documents\GitHub\netivreg\Files\manuscript_output.
+> log
   log type:  text
- opened on:  30 Oct 2024, 21:11:56
+ opened on:  30 Oct 2024, 21:15:20
 
 . 
 . *-- Load Nodes Simulated Data
@@ -581,8 +581,8 @@ n_references |   .0071013   .0027243     2.61   0.009     .0017528    .0124499
 . 
 . log close
       name:  <unnamed>
-       log:  C:\Users\djachoc\Documents\GitHub\netivreg\stata_package\manuscript
-> _output.log
+       log:  C:\Users\djachoc\Documents\GitHub\netivreg\Files\manuscript_output.
+> log
   log type:  text
- closed on:  30 Oct 2024, 21:12:02
+ closed on:  30 Oct 2024, 21:15:27
 --------------------------------------------------------------------------------
