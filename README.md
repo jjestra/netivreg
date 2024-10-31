@@ -54,7 +54,7 @@ Authors:
 
    This command creates a conda environment named ```netivreg_env``` with Python 3.9 and the necessary packages with the compatible versions.
 
-   > Note: On Windows, this environment is typically created within the `C:\Users\<username>\anaconda3\envs` folder.  Inside envs, a subfolder named netivreg_env will hold all files for this specific environment.
+   > Note: On Windows, this environment is typically created within the `C:\Users\<username>\anaconda3\envs` folder.  Inside `envs`, a subfolder named `netivreg_env` will hold all files for this specific environment.
 
 3. **Activate the Python environment for netivreg:**
 
@@ -68,11 +68,12 @@ Authors:
    
    After completing steps 1–3 above, link Python to your local Stata installation. Open Stata and use the following command in the Stata command window to set the Python version:
 
+   > Note: On Windows, one would write
    ```stata
    python set exec "C:\Users\<username>\anaconda3\envs\netivreg_env\python.exe" , permanently
    ```
 
-   Replace `<username>` with your actual username in the path. This command tells Stata to use the specified Python executable within the Anaconda environment netivreg_env. Setting it permanently means Stata will remember this configuration for future sessions.
+   Replace `<username>` with your actual username in the path. This command tells Stata to use the specified Python executable within the Anaconda environment `netivreg_env`. Setting it permanently means Stata will remember this configuration for future sessions. Otherwise, you will need to set this address every time you would like to use the `netivreg` command.
 
 ## <span style="color:red">Manual</span> Installation:
 
@@ -85,7 +86,7 @@ Authors:
 6. **Copy Python Files to the Stata ado/plus/py Folder:**
 
    - This the ```__init__.py```, ```g3sls.py``` and ```gmm.py``` files in the `Files` folder within this repository. 
-   - Copy these files to the ```ado/plus/py``` forlder in your local user installation directory. For example, `C:/Users/<usarname>/ado/plus/py` in Windows. If this folder does not exist, you can create it.
+   - Copy these files to the ```ado/plus/py``` folder in your local user installation directory. For example, `C:/Users/<usarname>/ado/plus/py` in Windows. If this folder does not exist, you can create it.
 
 
 ## How-To Video
