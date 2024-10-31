@@ -41,6 +41,8 @@ Authors:
 
    Download and install [Anaconda](https://www.anaconda.com/download/success) on your computer, which comes with Python 3.9 or higher. The Anaconda distribution is highly recommended to ensure compatibility with `netivreg`.
 
+   > Note: On Windows, Anaconda is typically installed in the `C:\Users\<your-username>\anaconda3` folder. 
+
 
 2. **Create a Python environment for netivreg:**
    
@@ -62,11 +64,13 @@ Authors:
 
 4. **Directing Stata to use the crated Python environment:**  
    
-   After completing steps 1-3 above, you need to link it to your local Stata installation. Open Stata and use the following command to set the Python version:
+   After completing steps 1–3 above, link Python to your local Stata installation. Open Stata and use the following command in the Stata command window to set the Python version:
+
    ```stata
-   python set exec <location>\bin\python3.9, permanently
-    ```
-   Replace `<location>` with the actual path to your local Python installation, typically found within the Anaconda folder.
+   python set exec "C:\Users\<username>\anaconda3\envs\netivreg_env\python.exe" , permanently
+   ```
+
+   Replace `<username>` with your actual username in the path. This command tells Stata to use the specified Python executable within the Anaconda environment netivreg_env. Setting it permanently means Stata will remember this configuration for future sessions.
 
 ## <span style="color:red">Manual</span> Installation:
 
