@@ -41,7 +41,7 @@ Authors:
 
    Download and install [Anaconda](https://www.anaconda.com/download/success) on your computer, which comes with Python 3.9 or higher. The Anaconda distribution is highly recommended to ensure compatibility with `netivreg`.
 
-   > Note: On Windows, Anaconda is typically installed in the `C:\Users\<your-username>\anaconda3` folder. 
+   > Note: On Windows, Anaconda is typically installed in the `C:\Users\<username>\anaconda3` folder. 
 
 
 2. **Create a Python environment for netivreg:**
