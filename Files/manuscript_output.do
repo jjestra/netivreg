@@ -1,34 +1,34 @@
 clear all
 set more off, permanently
 
-/*
-cd "Your directory where you saved the folder with the example files"
-*/
 
-log using "netivregOUT", replace name("netivreg output log")
+cd "C:\Users\djachoc\Documents\GitHub\netivreg\stata_package"
+
+
+log using "manuscript_output", text replace
 
 *-- Load Nodes Simulated Data
-use data/data_sim.dta, clear
+use data_sim.dta, clear
 format y_endo y_exo x1 x2 x3 x4 %9.3f
 list in 1/5, table 
 
 *-- Load W Simulated Data
-use data/W_sim.dta, clear
+use W_sim.dta, clear
 list in 113/117, table 
 
 *-- Load W0 Simulated Data
-use data/W0_sim.dta, clear
+use W0_sim.dta, clear
 list in 113/117, table 
 
 *-- netivreg: Exogenous (G2SLS)
-use data/data_sim.dta
+use data_sim.dta
 frame create edges
-frame edges: use data/W_sim.dta
+frame edges: use W_sim.dta
 netivreg g3sls y_exo x1 x2 x3 x4 (edges = edges)
 
 *-- netivreg: Exogenous (G3SLS)
 frame create edges0
-frame edges0: use data/W0_sim.dta
+frame edges0: use W0_sim.dta
 netivreg g3sls y_exo x1 x2 x3 x4 (edges = edges0) 
 
 *-- netivreg: Exogenous (GMM)
@@ -53,7 +53,7 @@ netivreg g3sls y_endo x1 x2 x3 x4 (edges = edges)
 **# ARTICLES DATA
 
 *-- Data description
-use data/articles.dta
+use articles.dta
 describe
 
 *-- Summary Statistics I
@@ -67,16 +67,16 @@ frame reset
 
 *-- Frame edges & edges0
 frame create edges
-frame edges: use data/edges.dta
+frame edges: use edges.dta
 frame edges: list in 1/5, table 
 frame create edges0
-frame edges0: use data/edges0.dta
+frame edges0: use edges0.dta
 frame edges0: list in 1/5, table
 
-use data/articles.dta
+use articles.dta
 
-tabulate journal, g(journal)
-tabulate year, g(year)
+quietly tabulate journal, g(journal)
+quietly tabulate year, g(year)
 
 *-- Estimation G3SLS
 netivreg g3sls lcitations editor diff_gender n_pages n_authors n_references isolated journal2-journal4 year2-year3 (edges = edges0), wx(editor diff_gender) cluster(c_coauthor)
@@ -84,4 +84,4 @@ netivreg g3sls lcitations editor diff_gender n_pages n_authors n_references isol
 *-- Estimation GMM
 netivreg gmm lcitations editor diff_gender n_pages n_authors n_references isolated journal2-journal4 year2-year3 (edges = edges0), wx(editor diff_gender) wz(editor diff_gender n_pages n_authors n_references isolated) maxp(4)
 
-log close _all
+log close
