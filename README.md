@@ -104,7 +104,7 @@ For Windows users, please refer to the following instructional video
       conda env list
       ```
 
-   - To desactive and environment, on Windows, in your Aanconda Prompot, run
+   - To desactive an environment, in your Aanconda Prompt run
       ```bash
       conda desactivate
       ```
