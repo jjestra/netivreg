@@ -98,11 +98,17 @@ For Windows users, please refer to the following instructional video
 
 
 ## Tips
-To recover the location path of the environment `netivreg_env`, the user can run the following command in the command prompt,
+   - To recover the location path of the environment `netivreg_env`, the user can run the following command in the command prompt,
 
-```
-conda env list
-```
+      ```bash
+      conda env list
+      ```
+
+   - To desactive and environment, on Windows, in your Aanconda Prompot, run
+      ```bash
+      conda desactivate
+      ```
+
 
 ## Usage 
 
