@@ -93,7 +93,7 @@ Authors:
 
 For Windows users, please refer to the following instructional video
 
-[![Watch the video](https://img.youtube.com/vi/u_zt9QbGTTA/maxresdefault.jpg)](https://www.youtube.com/watch?v=u_zt9QbGTTA&feature=youtu.be)
+[![Watch the video](https://img.youtube.com/vi/LfUSOjjb9mw/maxresdefault.jpg)](https://www.youtube.com/watch?v=LfUSOjjb9mw)
 
 
 
