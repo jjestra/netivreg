@@ -1,7 +1,7 @@
 ## Code for the article "```netivreg```: _Estimation of Peer Effects in Endogenous Social Networks_"
 
 The command ```netivreg```  implements the Generalized Three-Stage Least Squares (G3SLS) estimator developed in
-[**Estrada (2022)**, '_Causal Inference in Multilayered Networks_,' Ph.D. Dissertation](https://etd.library.emory.edu/concern/etds/3r074w158) and the Generalized Method of Moments (GMM) estimator in [**Chan, T. J., J. Estrada, K. P. Huynh, D. T. Jacho-Chávez, C. T. Lam, and L. Sánchez-Aragón (in press)** '_On the Estimation of Social Effects with Observational Network Data and Random Assignment_,' Journal of Econometric Methods](https://www.degruyter.com/journal/key/jem/html) for the endogenous linear-in-means model. 
+[**Estrada (2022)**, '_Causal Inference in Multilayered Networks_,' Ph.D. Dissertation](https://etd.library.emory.edu/concern/etds/3r074w158) and the Generalized Method of Moments (GMM) estimator in [**Chan, T. J., J. Estrada, K. P. Huynh, D. T. Jacho-Chávez, C. T. Lam, and L. Sánchez-Aragón (2024)** '_On the Estimation of Social Effects with Observational Network Data and Random Assignment_,' Journal of Econometric Methods](https://doi.org/10.1515/jem-2023-0043) for the endogenous linear-in-means model. 
 The two procedures utilize full observability of a two-layered multiplex network data structure using Stata's new multiframes capabilities 
 and Python integration (version 16 or above). 
 
