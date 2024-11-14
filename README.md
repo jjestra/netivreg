@@ -90,15 +90,15 @@ Authors:
    - Locate the  ```__init__.py```, ```g3sls.py``` and ```gmm.py``` files  in the `Files` folder within this repository. 
    - Copy these files to the ```ado/plus/py/netivreg``` folder.
 
-   **Alternative way to handle `py` filesp** (We thank Stata for making this suggestion)
+   **Alternative way to handle `py` files** (We thank Stata for making this suggestion)
 
-   - Change the content of __init__.py to the following:
+   - Change the content of `__init__.py` to the following:
 
-         __version__ = "1.0.0"
-         from g3sls import *
-         from gmm import *
+      __version__ = "1.0.0"
+      from g3sls import *
+      from gmm import *
 
-         (Just removed `.` from the front of g3sls and gmm)
+   Just removed `.` from the front of g3sls and gmm.
          
    - Rename __init__.py to netivreg.py.  
   
