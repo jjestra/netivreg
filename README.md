@@ -101,7 +101,7 @@ Authors:
       from gmm import *
    ```
 
-         Previously, we used `from .g3sls import *` and `from .gmm import *`, with a `.` prefix. This update removes the `.` to simplify the import statements.
+     - Previously, we used `from .g3sls import *` and `from .gmm import *`, with a `.` prefix. This update removes the `.` to simplify the import statements.
 
    - Rename ` __init__.py` to `netivreg.py`.  
   
