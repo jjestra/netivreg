@@ -85,9 +85,25 @@ Authors:
 
 6. **Copy Python Files to the Stata ado/plus/py Folder:**
 
-   - This the ```__init__.py```, ```g3sls.py``` and ```gmm.py``` files in the `Files` folder within this repository. 
-   - Copy these files to the ```ado/plus/py``` folder in your local user installation directory. For example, `C:/Users/<username>/ado/plus/py` in Windows. If this folder does not exist, you can create it.
+   - Locate the `ado/plus/py` folder  in your local user installation directory. For example, `C:/Users/<username>/ado/plus/py` in Windows. If this folder does not exist, you can create it.
+   - Inside the `ado/plus/py` folder, create a new folder named `netivreg`.
+   - Locate the  ```__init__.py```, ```g3sls.py``` and ```gmm.py``` files  in the `Files` folder within this repository. 
+   - Copy these files to the ```ado/plus/py/netivreg``` folder.
 
+   **Alternative way to handle `py` filesp** (We thank Stata for making this suggestion)
+
+   - Change the content of __init__.py to the following:
+
+         __version__ = "1.0.0"
+         from g3sls import *
+         from gmm import *
+
+         (Just removed `.` from the front of g3sls and gmm)
+         
+   - Rename __init__.py to netivreg.py.  
+  
+   - Copy the `netivreg.py`, `g3sls.py`, and `gmm.py` into the folder `ado/plus/py`. Now, you do not need to create the folder named `netivreg`. 
+   
 
 ## How-To Video
 
