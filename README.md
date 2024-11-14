@@ -90,7 +90,10 @@ Authors:
    - Locate the  ```__init__.py```, ```g3sls.py``` and ```gmm.py``` files  in the `Files` folder within this repository. 
    - Copy these files to the ```ado/plus/py/netivreg``` folder.
 
-   **Alternative way to handle py files** (We thank Stata for making this suggestion)
+
+   **Optional Setup: Directly Adding Python Files to `ado/plus/py`**
+
+   We thank Stata for making this suggestion.
 
    - Change the content of `__init__.py` to the following:
 
