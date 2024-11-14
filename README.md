@@ -91,9 +91,7 @@ Authors:
    - Copy these files to the ```ado/plus/py/netivreg``` folder.
 
 
-   **Optional Setup: Directly Adding Python Files to `ado/plus/py`**
-
-   We thank Stata for making this suggestion.
+   **Optional Setup: Directly Adding Python Files to `ado/plus/py`**   _We thank Stata for making this suggestion._
 
    - Change the content of `__init__.py` to the following:
 
@@ -103,8 +101,8 @@ Authors:
       from gmm import *
    ```
 
-      Just removed `.` from the front of g3sls and gmm.
-         
+      Previously, we used `from .g3sls import *` and `from .gmm import *`, with a `.` prefix. This update removes the `.` to simplify the import statements.
+
    - Rename ` __init__.py` to `netivreg.py`.  
   
    - Copy the `netivreg.py`, `g3sls.py`, and `gmm.py` into the folder `ado/plus/py`. Now, you do not need to create the folder named `netivreg`. 
