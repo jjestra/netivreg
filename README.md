@@ -100,9 +100,9 @@ Authors:
       from gmm import *
    ```
 
-   Just removed `.` from the front of g3sls and gmm.
+      Just removed `.` from the front of g3sls and gmm.
          
-   - Rename __init__.py to netivreg.py.  
+   - Rename ` __init__.py` to `netivreg.py`.  
   
    - Copy the `netivreg.py`, `g3sls.py`, and `gmm.py` into the folder `ado/plus/py`. Now, you do not need to create the folder named `netivreg`. 
    
